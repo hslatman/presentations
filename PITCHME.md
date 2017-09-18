@@ -21,7 +21,7 @@
     </ul>
   </li>
   <li>
-    <i class="fa fa-external-link" aria-hidden="true"></i> - <a target="_blank" href="https://hermanslatman.nl/contact.html"></a>
+    Contact information @ <a target="_blank" href="https://hermanslatman.nl/contact.html">https://hermanslatman.nl/contact.html</a>
   </li>
 </ul>
 
