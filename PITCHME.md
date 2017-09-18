@@ -156,9 +156,6 @@ Bla
     <li><a href="https://realm.io/products/realm-mobile-platform/" target="_blank">Realm Mobile Platform</a></li>
     <li><a href="https://github.com/realm/realm-java/tree/master/examples" target="_blank">Realm Examples</a></li>
     <li><a href="https://github.com/realm-demos" target="_blank">Realm Demos</a></li>
-</ul>
-
-<ul>
     <li><a href="https://www.extendas.com" target="_blank">Extendas</a></li>
     <li><a href="https://www.extendas.com/corporate/vacatures/" target="_blank">Vacatures</a></li>
 </ul>
