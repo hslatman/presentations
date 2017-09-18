@@ -23,7 +23,12 @@
 
 ---
 
-# App Development
+# Introduction
+
+
+---
+
+# Components of a mobile app
 
 <ul>
   <li>
@@ -34,7 +39,7 @@
     </ul>
   </li>
   <li>
-    Business Logica
+    Business Logic
     <ul>
       <li></li>
     </ul>
@@ -58,8 +63,40 @@
 </ul>
 
 
+---
+
+# Storage
+
+
+<ul>
+  <li>
+    Store data for repeated usage
+  </li>
+  <li>
+    Some storage options:
+    <ul>
+      <li>Shared preferences</li>
+      <li>Files</li>
+      <li>Database</li>
+    </ul>
+  </li>
+</ul>
+
 +++
 
-# 
+# Bla
+
+---
+
+# Networking
+
+Bla
+
+---
+
+# User Interface
+
+
+Bla
 
 
