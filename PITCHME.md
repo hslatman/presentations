@@ -25,19 +25,23 @@
 
 # Introduction
 
+<ul>
+    <li>
+        Mobile App Basics
+    </li>
+    <li>
+        Supercharging an app
+    </li>
+    <li>
+        Demo
+    </li>
+</ul>
 
 ---
 
 # Components of a mobile app
 
 <ul>
-  <li>
-    User Interface
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-  </li>
   <li>
     Business Logic
     <ul>
@@ -47,16 +51,25 @@
   <li>
     Storage
     <ul>
-    	<li></li>
-  	    <li></li>
+    	<li>Remember stuff</li>
+    	<li>Can basically be anything</li>
     </ul>
   </li>
   <li>
     Networking
     <ul>
-        <li>
+        <li>Interact with web services</li>
+        <li>Retrieve and send data</li>
+        <li>An online backend</li>
     </ul>
   </li>
+    <li>
+      User Interface
+      <ul>
+        <li></li>
+        <li></li>
+      </ul>
+    </li>
   <li>
     Diagnostics &amp; Logging
   </li>
@@ -64,6 +77,21 @@
 
 
 ---
+
+# Business Logic
+
+
+---
+
+
+# User Interface
+
+
+Bla
+
+
+---
+
 
 # Storage
 
@@ -94,9 +122,10 @@ Bla
 
 ---
 
-# User Interface
 
 
-Bla
+# Demo
+
+<a target="_blank" href="http://ros-test.spinpos.com:9080/">Realm Object Server</a>
 
 
