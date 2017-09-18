@@ -20,7 +20,7 @@
     </ul>
   </li>
   <li>
-  <i class="fa fa-github" aria-hidden="true"></i>
+    <a target="_blank" href="https://github.com/hslatman"><i class="fa fa-github" aria-hidden="true"></i></a>
   </li>
 </ul>
 
