@@ -141,17 +141,13 @@ Bla
 
 ---
 
-# Demo: Example Code
+# Demo - Example Code
 
 ## User Registration
 
 ```
-/*
- * Copyright 2016 Realm Inc.
- */
-
 ...
-quite imports omitted here
+quite some imports omitted here
 ...
 
 public class RegisterActivity extends AppCompatActivity implements SyncUser.Callback {
@@ -255,6 +251,390 @@ public class RegisterActivity extends AppCompatActivity implements SyncUser.Call
 
 +++
 
+## User Management
+
+```
+
+Some imports
+
+public class UserManager {
+    // Supported authentication mode
+    public enum AUTH_MODE {
+        PASSWORD,
+        FACEBOOK,
+        GOOGLE
+    }
+    private static AUTH_MODE mode = AUTH_MODE.PASSWORD; // default
+
+    public static void setAuthMode(AUTH_MODE m) {
+        mode = m;
+    }
+
+    public static void logoutActiveUser() {
+        switch (mode) {
+            case PASSWORD: {
+                // Do nothing, handled by the `User.currentUser().logout();`
+                break;
+            }
+            case FACEBOOK: {
+                LoginManager.getInstance().logOut();
+                break;
+            }
+            case GOOGLE: {
+                // the connection is handled by `enableAutoManage` mode
+                break;
+            }
+        }
+        SyncUser.currentUser().logout();
+    }
+
+    // Configure Realm for the current active user
+    public static void setActiveUser(SyncUser user) {
+        SyncConfiguration defaultConfig = new SyncConfiguration.Builder(user, RealmTasksApplication.REALM_URL).build();
+        Realm.setDefaultConfiguration(defaultConfig);
+    }
+}
+
+```
+
++++
+
+## User Login
+
+
+```
+
+... Removed quite a number of imports
+
+public class SignInActivity extends AppCompatActivity implements SyncUser.Callback {
+
+    public static final String ACTION_IGNORE_CURRENT_USER = "action.ignoreCurrentUser";
+
+    private AutoCompleteTextView usernameView;
+    private EditText passwordView;
+    private View progressView;
+    private View loginFormView;
+    private FacebookAuth facebookAuth;
+    private GoogleAuth googleAuth;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        
+        // Quite similar to the RegisterActivity.onCreate
+        ...
+        
+    }
+
+    @Override
+    public void onSuccess(SyncUser user) {
+        showProgress(false);
+        loginComplete(user);
+    }
+
+    private void loginComplete(SyncUser user) {
+        UserManager.setActiveUser(user);
+
+        createInitialDataIfNeeded();
+
+        Intent listActivity = new Intent(this, TaskListActivity.class);
+        Intent tasksActivity = new Intent(this, TaskActivity.class);
+        tasksActivity.putExtra(TaskActivity.EXTRA_LIST_ID, RealmTasksApplication.DEFAULT_LIST_ID);
+        startActivities(new Intent[] { listActivity, tasksActivity} );
+        finish();
+    }
+
+    private static void createInitialDataIfNeeded() {
+        final Realm realm = Realm.getDefaultInstance();
+        //noinspection TryFinallyCanBeTryWithResources
+        try {
+            if (realm.where(TaskListList.class).count() != 0) {
+                return;
+            }
+            realm.executeTransaction(new Realm.Transaction() {
+                @Override
+                public void execute(Realm realm) {
+                    if (realm.where(TaskListList.class).count() == 0) {
+                        final TaskListList taskListList = realm.createObject(TaskListList.class, 0);
+                        final TaskList taskList = new TaskList();
+                        taskList.setId(RealmTasksApplication.DEFAULT_LIST_ID);
+                        taskList.setText(RealmTasksApplication.DEFAULT_LIST_NAME);
+                        taskListList.getItems().add(taskList);
+                    }
+                }
+            });
+        } finally {
+            realm.close();
+        }
+    }
+}
+
+```
+
++++
+
+## Showing and updating data
+
+``` 
+
+public class TaskListActivity extends AppCompatActivity {
+
+    private Realm realm;
+    private RecyclerViewWithEmptyViewSupport recyclerView;
+    private TaskListAdapter adapter;
+    private TouchHelper touchHelper;
+    private RealmResults<TaskListList> list;
+    private boolean logoutAfterClose;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_common_list);
+        recyclerView = (RecyclerViewWithEmptyViewSupport) findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setEmptyView(findViewById(R.id.empty_view));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (touchHelper != null) {
+            touchHelper.attachToRecyclerView(null);
+        }
+        adapter = null;
+        realm = Realm.getDefaultInstance();
+        list = realm.where(TaskListList.class).findAll();
+        list.addChangeListener(new RealmChangeListener<RealmResults<TaskListList>>() {
+            @Override
+            public void onChange(RealmResults<TaskListList> results) {
+                updateList(results);
+            }
+        });
+        updateList(list);
+    }
+
+    private void updateList(RealmResults<TaskListList> results) {
+
+        if (results.size() > 0 && adapter == null) {
+
+            // Code omitted for brevity
+
+            // Create Adapter
+            adapter = new TaskListAdapter(TaskListActivity.this, results.first().getItems());
+            touchHelper = new TouchHelper(new Callback(), adapter);
+            touchHelper.attachToRecyclerView(recyclerView);
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        list.removeChangeListeners();
+        if (adapter != null) {
+            touchHelper.attachToRecyclerView(null);
+            adapter = null;
+        }
+        realm.removeAllChangeListeners();
+        realm.close();
+        realm = null;
+        if (logoutAfterClose) {
+            /*
+             * We need call logout() here since onCreate() of the next Activity is already
+             * executed before reaching here.
+             */
+            UserManager.logoutActiveUser();
+            logoutAfterClose = false;
+        }
+        super.onStop();
+    }
+
+    private class Callback implements TouchHelper.Callback {
+
+        @Override
+        public void onMoved(RecyclerView recyclerView, ItemViewHolder from, ItemViewHolder to) {
+            final int fromPosition = from.getAdapterPosition();
+            final int toPosition = to.getAdapterPosition();
+            adapter.onItemMoved(fromPosition, toPosition);
+            adapter.notifyItemMoved(fromPosition, toPosition);
+        }
+
+        @Override
+        public void onCompleted(ItemViewHolder viewHolder) {
+            adapter.onItemCompleted(viewHolder.getAdapterPosition());
+            adapter.notifyDataSetChanged();
+        }
+
+        @Override
+        public void onDismissed(ItemViewHolder viewHolder) {
+            final int position = viewHolder.getAdapterPosition();
+            adapter.onItemDismissed(position);
+            adapter.notifyItemRemoved(position);
+        }
+
+        @Override
+        public boolean canDismissed() {
+            return false;
+        }
+
+        @Override
+        public boolean onClicked(ItemViewHolder viewHolder) {
+            final int position = viewHolder.getAdapterPosition();
+            final TaskList taskList = adapter.getItem(position);
+            final String id = taskList.getId();
+            final Intent intent = new Intent(TaskListActivity.this, TaskActivity.class);
+            intent.putExtra(TaskActivity.EXTRA_LIST_ID, id);
+            TaskListActivity.this.startActivity(intent);
+            return true;
+        }
+
+        @Override
+        public void onChanged(ItemViewHolder viewHolder) {
+            adapter.onItemChanged(viewHolder);
+            adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+        }
+
+        @Override
+        public void onAdded() {
+            adapter.onItemAdded();
+            adapter.notifyItemInserted(0);
+        }
+
+        @Override
+        public void onReverted(boolean shouldUpdateUI) {
+            adapter.onItemReverted();
+            if (shouldUpdateUI) {
+                adapter.notifyDataSetChanged();
+            }
+        }
+
+        @Override
+        public void onExit() {
+        }
+    }
+}
+
+public class TaskListAdapter extends CommonAdapter<TaskList> implements TouchHelperAdapter {
+
+    public TaskListAdapter(Context context, OrderedRealmCollection<TaskList> items) {
+        super(context, items);
+    }
+
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        super.onBindViewHolder(holder, position);
+        final ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
+        final TaskList taskList = getItem(position);
+        itemViewHolder.getText().setText(taskList.getText());
+        itemViewHolder.setBadgeVisible(true);
+        final long badgeCount = taskList.getItems().where().equalTo(TaskList.FIELD_COMPLETED, false).count();
+        itemViewHolder.setBadgeCount((int) badgeCount);
+        itemViewHolder.setCompleted(taskList.isCompleted());
+    }
+
+    @Override
+    public void onItemAdded() {
+        final Realm realm = Realm.getDefaultInstance();
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                final TaskList taskList = new TaskList();
+                taskList.setId(UUID.randomUUID().toString());
+                taskList.setText("");
+                getData().add(0, taskList);
+            }
+        });
+        realm.close();
+    }
+
+    @Override
+    public void onItemMoved(final int fromPosition, final int toPosition) {
+        final Realm realm = Realm.getDefaultInstance();
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                moveItems(fromPosition, toPosition);
+            }
+        });
+        realm.close();
+    }
+
+    @Override
+    public void onItemCompleted(final int position) {
+        final TaskList taskList = getItem(position);
+        final Realm realm = Realm.getDefaultInstance();
+        final int count = (int) getData().where().equalTo(TaskList.FIELD_COMPLETED, false).count();
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                if (!taskList.isCompleted()) {
+                    if (taskList.isCompletable()) {
+                        taskList.setCompleted(true);
+                        moveItems(position, count - 1);
+                    } else {
+                        Toast.makeText(context, R.string.no_item, Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    taskList.setCompleted(false);
+                    moveItems(position, count);
+                }
+            }
+        });
+        realm.close();
+    }
+
+    @Override
+    public void onItemDismissed(final int position) {
+        final Realm realm = Realm.getDefaultInstance();
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                final TaskList taskList = getData().get(position);
+                taskList.getItems().deleteAllFromRealm();
+                taskList.deleteFromRealm();
+            }
+        });
+        realm.close();
+    }
+
+    @Override
+    public void onItemReverted() {
+        if (getData().size() == 0) {
+            return;
+        }
+        final Realm realm = Realm.getDefaultInstance();
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                final TaskList taskList = getData().get(0);
+                taskList.getItems().deleteAllFromRealm();
+                taskList.deleteFromRealm();
+            }
+        });
+        realm.close();
+    }
+
+    @Override
+    public void onItemChanged(final ItemViewHolder viewHolder) {
+        final Realm realm = Realm.getDefaultInstance();
+        final int position = viewHolder.getAdapterPosition();
+        if (position < 0) {
+            realm.close();
+            return;
+        }
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                TaskList taskList = getItem(position);
+                taskList.setText(viewHolder.getText().getText().toString());
+            }
+        });
+        realm.close();
+    }
+}
+
+```
+
+
++++
+
 # Demo: Realm Object Server
 
 <a target="_blank" href="http://ros-test.spinpos.com:9080/">Realm Object Server</a>
@@ -262,7 +642,7 @@ public class RegisterActivity extends AppCompatActivity implements SyncUser.Call
 
 
 
-+++
+---
 
 # (Additional) Resources
 
