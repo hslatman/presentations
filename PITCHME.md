@@ -21,6 +21,14 @@
   </li>
   <li>
     <a target="_blank" href="https://github.com/hslatman"><i class="fa fa-github" aria-hidden="true"></i></a>
+    <a target="_blank" href="https://keybase.io/hslatman"><i class="fa fa-key" aria-hidden="true"></i></a>
+        <a target="_blank" href="https://twitter.com/hslatman"><i class="fa fa-twitter" aria-hidden="true"></i>
+</i></a>
+    <a target="_blank" href="https://nl.linkedin.com/in/hslatman/nl"><i class="fa fa-linkedin" aria-hidden="true"></i>
+</i></a>twitt
+    <a target="_blank" href="https://hermanslatman.nl"><i class="fa fa-globe" aria-hidden="true"></i>
+</a>
+
   </li>
 </ul>
 
