@@ -141,7 +141,121 @@ Bla
 
 ---
 
-# Demo
+# Demo: Example Code
+
+## User Registration
+
+```
+/*
+ * Copyright 2016 Realm Inc.
+ */
+
+...
+quite imports omitted here
+...
+
+public class RegisterActivity extends AppCompatActivity implements SyncUser.Callback {
+
+    private AutoCompleteTextView usernameView;
+    private EditText passwordView;
+    private EditText passwordConfirmationView;
+    private View progressView;
+    private View registerFormView;
+    private FacebookAuth facebookAuth;
+    private GoogleAuth googleAuth;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
+        usernameView = (AutoCompleteTextView) findViewById(R.id.username);
+        passwordView = (EditText) findViewById(R.id.password);
+        passwordConfirmationView = (EditText) findViewById(R.id.password_confirmation);
+
+        final Button mailRegisterButton = (Button) findViewById(R.id.email_register_button);
+        mailRegisterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                attemptRegister();
+            }
+        });
+
+        registerFormView = findViewById(R.id.register_form);
+        progressView = findViewById(R.id.register_progress);
+
+        // Setup Facebook Authentication
+        facebookAuth = new FacebookAuth((LoginButton) findViewById(R.id.login_button)) {
+            @Override
+            public void onRegistrationComplete(final LoginResult loginResult) {
+                UserManager.setAuthMode(UserManager.AUTH_MODE.FACEBOOK);
+                SyncCredentials credentials = SyncCredentials.facebook(loginResult.getAccessToken().getToken());
+                SyncUser.loginAsync(credentials, AUTH_URL, RegisterActivity.this);
+            }
+        };
+
+        // Setup Google Authentication
+        googleAuth = new GoogleAuth((SignInButton) findViewById(R.id.sign_in_button), this) {
+            @Override
+            public void onRegistrationComplete(GoogleSignInResult result) {
+                UserManager.setAuthMode(UserManager.AUTH_MODE.GOOGLE);
+                GoogleSignInAccount acct = result.getSignInAccount();
+                SyncCredentials credentials = SyncCredentials.google(acct.getIdToken());
+                SyncUser.loginAsync(credentials, AUTH_URL, RegisterActivity.this);
+            }
+        };
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        googleAuth.onActivityResult(requestCode, resultCode, data);
+        facebookAuth.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void attemptRegister() {
+        
+        // Error checking on input fields omitted
+        ...
+        
+        
+        if (cancel) {
+            focusView.requestFocus();
+        } else {
+            showProgress(true);
+            SyncUser.loginAsync(SyncCredentials.usernamePassword(username, password, true), AUTH_URL, new SyncUser.Callback() {
+                @Override
+                public void onSuccess(SyncUser user) {
+                    registrationComplete(user);
+                }
+
+                @Override
+                public void onError(ObjectServerError error) {
+                    showProgress(false);
+                    String errorMsg;
+                    switch (error.getErrorCode()) {
+                        case EXISTING_ACCOUNT: errorMsg = "Account already exists"; break;
+                        default:
+                            errorMsg = error.toString();
+                    }
+                    Toast.makeText(RegisterActivity.this, errorMsg, Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+    }
+
+    private void registrationComplete(SyncUser user) {
+        UserManager.setActiveUser(user);
+        Intent intent = new Intent(this, SignInActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+}
+
+```
+
++++
+
+# Demo: Realm Object Server
 
 <a target="_blank" href="http://ros-test.spinpos.com:9080/">Realm Object Server</a>
 
@@ -159,5 +273,3 @@ Bla
     <li><a href="https://www.extendas.com" target="_blank">Extendas</a></li>
     <li><a href="https://www.extendas.com/corporate/vacatures/" target="_blank">Vacatures</a></li>
 </ul>
-
-# 
