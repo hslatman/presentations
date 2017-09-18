@@ -19,6 +19,9 @@
   	    <li>Mobile (Swift)</li>
     </ul>
   </li>
+  <li>
+  <i class="fa fa-github" aria-hidden="true"></i>
+  </li>
 </ul>
 
 ---
