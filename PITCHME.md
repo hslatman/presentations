@@ -15,14 +15,13 @@
   <li>
     Software Architect at Extendas
     <ul>
+        <li>Since ... 2016</li>
     	<li>Backend (PHP, Python)</li>
   	    <li>Mobile (Swift)</li>
     </ul>
   </li>
   <li>
-    <a target="_blank" href="https://hermanslatman.nl/contact.html"><i class="fa fa-globe" aria-hidden="true"></i>
-</a>
-
+    <i class="fa fa-external-link" aria-hidden="true"></i> - <a target="_blank" href="https://hermanslatman.nl/contact.html"></a>
   </li>
 </ul>
 
@@ -155,8 +154,8 @@ Bla
 
 <ul>
     <li><a href="https://realm.io/products/realm-mobile-platform/" target="_blank">Realm Mobile Platform</a></li>
-    <li><a href="https://github.com/realm/realm-java/tree/master/examples" target="_blank">Realm Examples</a>
-    <li><a href="https://github.com/realm-demos" target="_blank">Realm Demos</a>
+    <li><a href="https://github.com/realm/realm-java/tree/master/examples" target="_blank">Realm Examples</a></li>
+    <li><a href="https://github.com/realm-demos" target="_blank">Realm Demos</a></li>
 </ul>
 
 <ul>
