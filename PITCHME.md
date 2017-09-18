@@ -27,10 +27,13 @@
 
 <ul>
     <li>
-        Mobile App Basics
+        Mobile app development basics
     </li>
     <li>
-        Supercharging an app
+        Frustrations in mobile app development
+    </li>
+    <li>
+        Fast tracking app development with RMP
     </li>
     <li>
         Demo
@@ -45,7 +48,8 @@
   <li>
     Business Logic
     <ul>
-      <li></li>
+        <li>Models the domain of the application</li>
+        <li>Defines the functionality of your app</li>
     </ul>
   </li>
   <li>
@@ -66,13 +70,16 @@
     <li>
       User Interface
       <ul>
-        <li></li>
-        <li></li>
+        <li>Defines what users see</li>
+        <li>Allows users to interact with the app</li>
       </ul>
     </li>
-  <li>
-    Diagnostics &amp; Logging
-  </li>
+    <li>
+        Hardware
+    </li>
+    <li>
+        Diagnostics &amp; Logging
+    </li>
 </ul>
 
 
@@ -123,9 +130,26 @@ Bla
 ---
 
 
+# Realm Mobile Platform
+
+
+
+
+---
 
 # Demo
 
 <a target="_blank" href="http://ros-test.spinpos.com:9080/">Realm Object Server</a>
 
 
+
+
++++
+
+# (Additional) Resources
+
+<ul>
+    <li><a href="https://realm.io/products/realm-mobile-platform/" target="_blank">Realm Mobile Platform</a></li>
+    <li><a href="https://github.com/realm/realm-java/tree/master/examples" target="_blank">Realm Examples</a>
+    <li><a href="https://github.com/realm-demos" target="_blank">Realm Demos</a>
+</ul>
