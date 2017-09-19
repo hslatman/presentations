@@ -5,15 +5,16 @@
 # WHOAMI
 
 <ul>
+    <li>Herman Slatman</li>
   <li>
-    University of Twente
+    Studied at University of Twente
     <ul>
       <li>BSc. Technische Informatica</li>
       <li>MSC. Computer Science (Kerckhoff's Institute)</li>
     </ul>
   </li>
   <li>
-    Software Architect at Extendas
+    Currently a Software Architect at Extendas
     <ul>
         <li>Since August 2016</li>
     	<li>Backend (PHP, Python)</li>
@@ -136,7 +137,27 @@
 # User Interface
 
 
-Bla
+<ul>
+    <li>
+        Everything the user sees
+        <ul>
+            <li>Buttons, Labels, TextViews, EditText, Images, Checkboxes, Dialogs (Views)</li>
+            <li>Collection of views, such as a ListView</li>
+            <li>A way for specifying the location of views: a Layout</li>
+        </ul>
+    </li>
+    <li>
+        An app usually has several screens. In Android these can be created as Activities (or combined from Fragments)
+    </li>
+    <li>
+        Users can interact with (some) views
+        <ul>
+            <li>Edit the contents of an EditText</li>
+            <li>Enable or disable a Checkbox</li>
+            <li>Press Buttons</li>
+        </ul>
+    </li>
+</ul>
 
 
 ---
