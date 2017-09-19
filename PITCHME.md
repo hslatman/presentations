@@ -133,37 +133,6 @@
 
 ---
 
-<!--
-
-# User Interface
-
-
-<ul>
-    <li>
-        Everything the user sees
-        <ul>
-            <li>Buttons, Labels, TextViews, EditText, Images, Checkboxes, Dialogs (Views)</li>
-            <li>Collection of views, such as a ListView</li>
-            <li>A way for specifying the location of views: a Layout</li>
-        </ul>
-    </li>
-    <li>
-        An app usually has several screens. In Android these can be created as Activities (or combined from Fragments)
-    </li>
-    <li>
-        Users can interact with (some) views
-        <ul>
-            <li>Edit the contents of an EditText</li>
-            <li>Enable or disable a Checkbox</li>
-            <li>Press Buttons</li>
-        </ul>
-    </li>
-</ul>
-
-
----
-
--->
 
 # Storage
 
@@ -494,6 +463,11 @@ Bla
         </ul>
     </li>
 </ul>
+
+
+
++++
+
 
 
 # Realm Mobile Platform
