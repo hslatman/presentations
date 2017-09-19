@@ -650,9 +650,12 @@ public class TaskListAdapter extends CommonAdapter<TaskList> implements TouchHel
 
 
 
++++?image=http://i.giphy.com/90F8aUepslB84.gif
 
----?image=http://i.giphy.com/90F8aUepslB84.gif
+# Such Wow!
 
+
+---
 
 # (Additional) Resources
 
