@@ -740,7 +740,7 @@ Daarbij zijn we uitgekomen op het Realm Mobile Platform.
 # Realm Mobile Platform
 
 <ul>
-    <li class="fragment">
+    <li>
         Realm Mobile Database
         <ul>
             <li>Queries are <a target="_blank" href="https://github.com/realm/realm-java-benchmarks">super fast</a>*</li>
