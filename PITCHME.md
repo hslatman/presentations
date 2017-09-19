@@ -15,7 +15,7 @@
   <li>
     Software Architect at Extendas
     <ul>
-        <li>Since ... 2016</li>
+        <li>Since August 2016</li>
     	<li>Backend (PHP, Python)</li>
   	    <li>Mobile (Swift)</li>
     </ul>
@@ -151,12 +151,17 @@ Bla
 
 +++
 
+
+# Demo: Realm Tasks
+
+![RealmTasks](https://raw.githubusercontent.com/realm-demos/realm-tasks/master/screenshot.jpg)
+
+
 ## User Registration
 
 ```
-...
-quite some imports omitted here
-...
+
+... Omitted some imports
 
 public class RegisterActivity extends AppCompatActivity implements SyncUser.Callback {
 
@@ -263,7 +268,7 @@ public class RegisterActivity extends AppCompatActivity implements SyncUser.Call
 
 ```
 
-Some imports
+... Removed some imports
 
 public class UserManager {
     // Supported authentication mode
@@ -478,11 +483,6 @@ public class TaskListActivity extends AppCompatActivity {
         }
 
         @Override
-        public boolean canDismissed() {
-            return false;
-        }
-
-        @Override
         public boolean onClicked(ItemViewHolder viewHolder) {
             final int position = viewHolder.getAdapterPosition();
             final TaskList taskList = adapter.getItem(position);
@@ -505,17 +505,6 @@ public class TaskListActivity extends AppCompatActivity {
             adapter.notifyItemInserted(0);
         }
 
-        @Override
-        public void onReverted(boolean shouldUpdateUI) {
-            adapter.onItemReverted();
-            if (shouldUpdateUI) {
-                adapter.notifyDataSetChanged();
-            }
-        }
-
-        @Override
-        public void onExit() {
-        }
     }
 }
 
@@ -589,44 +578,10 @@ public class TaskListAdapter extends CommonAdapter<TaskList> implements TouchHel
     }
 
     @Override
-    public void onItemDismissed(final int position) {
-        final Realm realm = Realm.getDefaultInstance();
-        realm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-                final TaskList taskList = getData().get(position);
-                taskList.getItems().deleteAllFromRealm();
-                taskList.deleteFromRealm();
-            }
-        });
-        realm.close();
-    }
-
-    @Override
-    public void onItemReverted() {
-        if (getData().size() == 0) {
-            return;
-        }
-        final Realm realm = Realm.getDefaultInstance();
-        realm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-                final TaskList taskList = getData().get(0);
-                taskList.getItems().deleteAllFromRealm();
-                taskList.deleteFromRealm();
-            }
-        });
-        realm.close();
-    }
-
-    @Override
     public void onItemChanged(final ItemViewHolder viewHolder) {
         final Realm realm = Realm.getDefaultInstance();
         final int position = viewHolder.getAdapterPosition();
-        if (position < 0) {
-            realm.close();
-            return;
-        }
+
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
