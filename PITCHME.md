@@ -1,4 +1,4 @@
-# REST in peace
+# REST in Peace
 
 ---
 
@@ -648,7 +648,11 @@ public class TaskListAdapter extends CommonAdapter<TaskList> implements TouchHel
 
 # Demo: Drawing App
 
-
+<ul>
+    <li>Real-time sharing of drawings</li>
+    <li>Android and iOS can draw together</li>
+    <li>Avaliable at <a href="_blank" target="https://github.com/realm-demos/realm-draw">GitHub</a></li>
+</ul>
 
 +++?image=http://i.giphy.com/90F8aUepslB84.gif
 
