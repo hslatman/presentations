@@ -477,6 +477,17 @@ Bla
 +++
 
 
+# Can we make it even easier?
+
+Note:
+Al deze deeloplossingen kunnen bijdragen aan het verbeteren van je app. 
+Toch zijn er nog steeds zaken die je er nog niet mee afhandelt, zoals volledige synchronisatie van gegevens of het ontvangen van veranderingen in realtime.
+
+Bij Extendas hebben we gezocht naar een (totaal)oplossing voor data opslag voor objecten, realtime synchronisatie en de mogelijkheid om de interface automatisch te updaten wanneer nodig.
+Daarbij zijn we uitgekomen op het Realm Mobile Platform.
+
++++
+
 
 # Realm Mobile Platform
 
