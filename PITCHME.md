@@ -448,9 +448,9 @@ SQLite is relatively small, simple to embed, has an embedded engine, provides br
 
 +++
 
-# Example RESTful API: GET
+# Example REST(ful) API: GET
 
-GET https://api.twitter.com/1.1/account/settings.json
+GET <a href="https://api.twitter.com/1.1/account/settings.json" target="_blank">https://api.twitter.com/1.1/account/settings.json</a>
 
 ``` 
 {
