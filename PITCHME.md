@@ -492,9 +492,23 @@ Daarbij zijn we uitgekomen op het Realm Mobile Platform.
 # Realm Mobile Platform
 
 <ul>
-    <li></li>
+    <li>A combination of the Realm Mobile Database &amp; Realm Object Server</li>
+</ul>
+<ul>
+    <li>Realm Mobile Database
+        <ul>
+            <li>Queries are <a target="_blank" href="https://github.com/realm/realm-java-benchmarks">super fast</a>*</li>
+            <li>It's simple to setup; you define objects like POJOs</li>
+            <li>Changes to data can update the user interface (almost) instantly</li>
+            <li>Takes less space to store the same kind of data (in general)</li>
+            <li>Cross-platform: Android, iOS, Xamarin, React Native, Node.js, .Net Core</li>
+        </ul>
+    </li>
 </ul>
 
+<h6>*Keep in mind that benchmarks are hard</h6>
+
+<h6>Also check <a target="_blank" href="https://www.slideshare.net/ChristianMelchior/realm-building-a-mobile-database">this presentation</a> for more info on Realm internals</h6>
 
 ---
 
