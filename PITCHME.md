@@ -424,11 +424,16 @@ SQLite is relatively small, simple to embed, has an embedded engine, provides br
     <li class="fragment">
         External systems can be reached via a network, such as the internet
         <ul>
-            <li>But how can we communicate with them?</li>
+            <li>But how to communicate with them?</li>
         </ul>
     </li>
     <li class="fragment">
         REST(ful) APIs are common
+        <ul>
+            <li>Often implemented via HTTP(S)</li>
+            <li>Data can be in various formats; JSON is common</li>
+            <li>Simple to understand and use</li>
+        </ul>
     </li>
     <li class="fragment">
         Others include:
@@ -443,11 +448,220 @@ SQLite is relatively small, simple to embed, has an embedded engine, provides br
 
 +++
 
-# Example RESTful API
+# Example RESTful API: GET
 
+GET https://api.twitter.com/1.1/account/settings.json
 
+``` 
+{
+    "always_use_https": true,
+    "discoverable_by_email": true,
+    "geo_enabled": true,
+    "language": "en",
+    "protected": false,
+    "screen_name": "theSeanCook",
+    "show_all_inline_media": false,
+    "sleep_time": {
+        "enabled": false,
+        "end_time": null,
+        "start_time": null
+    },
+    "time_zone": {
+        "name": "Pacific Time (US & Canada)",
+        "tzinfo_name": "America/Los_Angeles",
+        "utc_offset": -28800
+    },
+    "trend_location": [
+        {
+            "country": "United States",
+            "countryCode": "US",
+            "name": "Atlanta",
+            "parentid": 23424977,
+            "placeType": {
+                "code": 7,
+                "name": "Town"
+            },
+            "url": "http://where.yahooapis.com/v1/place/2357024",
+            "woeid": 2357024
+        }
+    ],
+    "use_cookie_personalization": true,
+    "allow_contributor_request": "all"
+}
+```
 
++++
 
+# Example REST(ful) API: POST
+
+POST https://api.twitter.com/1.1/statuses/retweet/243149503589400576.json
+
+``` 
+
+{
+    "truncated": false,
+    "retweeted": false,
+    "id_str": "243149503589400576",
+    "coordinates": null,
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id_str": null,
+    "geo": null,
+    "in_reply_to_status_id": null,
+    "contributors": null,
+    "source": "\u003Ca href=\"http:\/\/jason-costa.blogspot.com\" rel=\"nofollow\"\u003EMy Shiny App\u003C\/a\u003E",
+    "in_reply_to_user_id_str": null,
+    "created_at": "Wed Sep 05 00:52:13 +0000 2012",
+    "favorited": false,
+    "entities": {
+        "user_mentions": [{
+            "indices": [3, 10],
+            "id_str": "7588892",
+            "screen_name": "kurrik",
+            "name": "Arne Roomann-Kurrik",
+            "id": 7588892
+        }],
+        "hashtags": [],
+        "urls": []
+    },
+    "user": {
+        "following": false,
+        "geo_enabled": true,
+        "profile_background_image_url": "http:\/\/a0.twimg.com\/images\/themes\/theme6\/bg.gif",
+        "description": "Platform at Twitter",
+        "notifications": false,
+        "friends_count": 166,
+        "profile_link_color": "FF3300",
+        "location": "",
+        "id_str": "14927800",
+        "default_profile_image": false,
+        "profile_image_url_https": "https:\/\/si0.twimg.com\/profile_images\/1751674923\/new_york_beard_normal.jpg",
+        "favourites_count": 883,
+        "profile_background_color": "709397",
+        "url": "http:\/\/t.co\/YCA3ZKY",
+        "screen_name": "jasoncosta",
+        "profile_background_tile": false,
+        "contributors_enabled": false,
+        "verified": false,
+        "created_at": "Wed May 28 00:20:15 +0000 2008",
+        "profile_sidebar_fill_color": "A0C5C7",
+        "followers_count": 8761,
+        "lang": "en",
+        "listed_count": 150,
+        "profile_sidebar_border_color": "86A4A6",
+        "protected": false,
+        "entities": {
+            "description": {
+                "urls": []
+            },
+            "url": {
+                "urls": [{
+                    "indices": [0, 19],
+                    "url": "http:\/\/t.co\/YCA3ZKY",
+                    "display_url": "jason-costa.blogspot.com",
+                    "expanded_url": "http:\/\/www.jason-costa.blogspot.com\/"
+                }]
+            }
+        },
+        "show_all_inline_media": true,
+        "follow_request_sent": false,
+        "statuses_count": 5533,
+        "profile_background_image_url_https": "https:\/\/si0.twimg.com\/images\/themes\/theme6\/bg.gif",
+        "name": "Jason Costa",
+        "default_profile": false,
+        "profile_use_background_image": true,
+        "profile_image_url": "http:\/\/a0.twimg.com\/profile_images\/1751674923\/new_york_beard_normal.jpg",
+        "id": 14927800,
+        "is_translator": true,
+        "time_zone": "Pacific Time (US & Canada)",
+        "utc_offset": -28800,
+        "profile_text_color": "333333"
+    },
+    "place": null,
+    "id": 243149503589400576,
+    "retweeted_status": {
+        "truncated": false,
+        "retweeted": false,
+        "id_str": "241259202004267009",
+        "coordinates": null,
+        "in_reply_to_screen_name": null,
+        "in_reply_to_status_id_str": null,
+        "geo": null,
+        "in_reply_to_status_id": null,
+        "contributors": null,
+        "source": "web",
+        "in_reply_to_user_id_str": null,
+        "created_at": "Thu Aug 30 19:40:50 +0000 2012",
+        "favorited": false,
+        "entities": {
+            "user_mentions": [],
+            "hashtags": [],
+            "urls": []
+        },
+        "user": {
+            "following": true,
+            "geo_enabled": true,
+            "profile_background_image_url": "http:\/\/a0.twimg.com\/profile_background_images\/342542280\/background7.png",
+            "description": "Developer Advocate at Twitter, practitioner of dark sandwich arts. ",
+            "notifications": false,
+            "friends_count": 500,
+            "profile_link_color": "0084B4",
+            "location": "Scan Francesco",
+            "id_str": "7588892",
+            "default_profile_image": false,
+            "profile_image_url_https": "https:\/\/si0.twimg.com\/profile_images\/24229162\/arne001_normal.jpg",
+            "favourites_count": 624,
+            "profile_background_color": "8FC1FF",
+            "url": "http:\/\/t.co\/bGmVjSox",
+            "screen_name": "kurrik",
+            "profile_background_tile": true,
+            "contributors_enabled": false,
+            "verified": false,
+            "created_at": "Thu Jul 19 15:58:07 +0000 2007",
+            "profile_sidebar_fill_color": "C7E0FF",
+            "followers_count": 3514,
+            "lang": "en",
+            "listed_count": 165,
+            "profile_sidebar_border_color": "6BAEFF",
+            "protected": false,
+            "entities": {
+                "description": {
+                    "urls": []
+                },
+                "url": {
+                    "urls": [{
+                        "indices": [0, 20],
+                        "url": "http:\/\/t.co\/bGmVjSox",
+                        "display_url": "start.roomanna.com",
+                        "expanded_url": "http:\/\/start.roomanna.com\/"
+                    }]
+                }
+            },
+            "show_all_inline_media": false,
+            "follow_request_sent": false,
+            "statuses_count": 2963,
+            "profile_background_image_url_https": "https:\/\/si0.twimg.com\/profile_background_images\/342542280\/background7.png",
+            "name": "Arne Roomann-Kurrik",
+            "default_profile": false,
+            "profile_use_background_image": true,
+            "profile_image_url": "http:\/\/a0.twimg.com\/profile_images\/24229162\/arne001_normal.jpg",
+            "id": 7588892,
+            "is_translator": false,
+            "time_zone": "Pacific Time (US & Canada)",
+            "utc_offset": -28800,
+            "profile_text_color": "000000"
+        },
+        "place": null,
+        "id": 241259202004267009,
+        "retweet_count": 1,
+        "in_reply_to_user_id": null,
+        "text": "tcptrace and imagemagick - two command line tools TOTALLY worth learning"
+    },
+    "retweet_count": 1,
+    "in_reply_to_user_id": null,
+    "text": "RT @kurrik: tcptrace and imagemagick - two command line tools TOTALLY worth learning"
+}
+
+```
 
 ---
 
