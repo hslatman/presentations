@@ -49,34 +49,34 @@
 # Components of a mobile app
 
 <ul>
-  <li>
-    Business Logic
-    <ul>
-        <li>Models the domain of the application</li>
-        <li>Defines the functionality of your app</li>
-    </ul>
-  </li>
-  <li>
-    Storage
-    <ul>
-    	<li>Remember stuff</li>
-    	<li>Can basically be anything</li>
-    </ul>
-  </li>
-  <li>
-    Networking
-    <ul>
-        <li>Interact with web services</li>
-        <li>Retrieve and send data</li>
-        <li>An online backend</li>
-    </ul>
-  </li>
     <li>
-      User Interface
-      <ul>
-        <li>Defines what users see</li>
-        <li>Allows users to interact with the app</li>
-      </ul>
+        User Interface
+        <ul>
+            <li>Defines what users see</li>
+            <li>Allows users to interact with the app</li>
+        </ul>
+    </li>
+    <li>
+        Business Logic
+        <ul>
+            <li>Models the domain of the application</li>
+            <li>Defines the functionality of your app</li>
+        </ul>
+    </li>
+    <li>
+        Storage
+        <ul>
+    	    <li>Remember stuff</li>
+    	    <li>Can basically be anything</li>
+        </ul>
+    </li>
+    <li>
+        Networking
+        <ul>
+            <li>Interact with web services</li>
+            <li>Retrieve and send data</li>
+            <li>An online backend</li>
+        </ul>
     </li>
     <li>
         Hardware
@@ -87,9 +87,47 @@
 </ul>
 
 
----
++++
 
-# Business Logic
+# Today:
+
+<ul>
+    <li>
+        User Interface
+        <ul>
+            <li>Defines what users see</li>
+            <li>Allows users to interact with the app</li>
+        </ul>
+    </li>
+    <li>
+        <strike>Business Logic</strike>
+        <ul>
+            <li><strike>Models the domain of the application</strike></li>
+            <li><strike>Defines the functionality of your app</strike></li>
+        </ul>
+    </li>
+    <li>
+        Storage
+        <ul>
+    	    <li>Remember stuff</li>
+    	    <li>Can basically be anything</li>
+        </ul>
+    </li>
+    <li>
+        Networking
+        <ul>
+            <li>Interact with web services</li>
+            <li>Retrieve and send data</li>
+            <li>An online backend</li>
+        </ul>
+    </li>
+    <li>
+        Hardware
+    </li>
+    <li>
+        Diagnostics &amp; Logging
+    </li>
+</ul>
 
 
 ---
@@ -136,7 +174,9 @@ Bla
 
 # Realm Mobile Platform
 
-
+<ul>
+    <li></li>
+</ul>
 
 
 ---
