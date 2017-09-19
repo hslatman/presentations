@@ -471,6 +471,7 @@ Bla
 
 ![REST](assets/img/rest.png)
 
+---
 
 # Realm Mobile Platform
 
