@@ -162,25 +162,38 @@
 
 ---
 
-
 # Storage
 
-
 <ul>
-  <li>
-    Store data for repeated usage
-  </li>
-  <li>
-    Some storage options:
-    <ul>
-      <li>Shared preferences</li>
-      <li>Files</li>
-      <li>Database</li>
-    </ul>
-  </li>
+    <li>
+        Store data for repeated usage
+    </li>
+    <li>
+        Some storage options:
+        <ul>
+            <li>Shared preferences</li>
+            <li>Files</li>
+            <li>Database</li>
+            <li>Online data storage providers</li>
+        </ul>
+    </li>
+    <li>
+        Databases provide ways to:
+        <ul>
+            <li>Efficiently store (new) data</li>
+            <li>Link data records to each other</li>
+            <li>Query the data</li>
+            <li>Change existing data</li>
+        </ul>
+    </li>
+    <li>
+        SQLite is a popular database for mobile devices
+    </li>
 </ul>
 
+
 +++
+
 
 # Bla
 
