@@ -1023,6 +1023,7 @@ Paid options are available for more functions.
 <ul>
     <li>Running within iOS emulator</li>
     <li>Synchronized with the Realm Object Server</li>
+    <li>Available at <a target="_blank" href="https://github.com/realm-demos/realm-tasks">GitHub</a></li>
 </ul>
 
 
