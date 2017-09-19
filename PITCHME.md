@@ -195,7 +195,9 @@
 +++
 
 
-# Bla
+# Example SQLite usage
+
+
 
 ---
 
