@@ -24,6 +24,9 @@
   <li>
     Contact information @ <a target="_blank" href="https://hermanslatman.nl/contact.html">https://hermanslatman.nl/contact.html</a>
   </li>
+  <li>
+    <a href="mailto:herman@extendas.com" target="_blank">herman@extendas.com</a>
+  </li>
 </ul>
 
 ---
@@ -35,13 +38,13 @@
         Mobile app development basics
     </li>
     <li>
-        Frustrations in mobile app development
+        Potential problems with storage and networking
     </li>
     <li>
-        Fast tracking app development with RMP
+        Fast tracking app development with Realm Mobile Platform
     </li>
     <li>
-        Demo
+        Demos
     </li>
 </ul>
 
@@ -140,7 +143,7 @@
     <li>
         Store data for repeated usage
     </li>
-    <li>
+    <li class="fragment">
         Some storage options:
         <ul>
             <li>Shared preferences</li>
@@ -668,7 +671,7 @@ POST https://api.twitter.com/1.1/statuses/retweet/243149503589400576.json
 
 # All seems well...
 
-## ... but there may be trouble ahead
+## ... but there may be problems ahead
 
 <ul>
     <li class="fragment">
@@ -702,7 +705,7 @@ POST https://api.twitter.com/1.1/statuses/retweet/243149503589400576.json
 # Partial solutions
 
 <ul>
-    <li>
+    <li class="fragment">
         Storage
         <ul>
             <li>Use an ORM, like <a target="_blank" href="https://github.com/greenrobot/greenDAO">greenDAO</a></li>
@@ -710,7 +713,7 @@ POST https://api.twitter.com/1.1/statuses/retweet/243149503589400576.json
             <li>Use a different type of local database, like <a target="_blank" href="http://objectbox.io/">ObjectBox</a>
         </ul>
     </li>
-    <li>
+    <li class="fragment">
         Networking
         <ul>
             <li>Handle (large) images with <a target="_blank" href="http://square.github.io/picasso/">Picasso</a>
@@ -740,7 +743,7 @@ Daarbij zijn we uitgekomen op het Realm Mobile Platform.
 # Realm Mobile Platform
 
 <ul>
-    <li>
+    <li class="fragment">
         Realm Mobile Database
         <ul>
             <li>Queries are <a target="_blank" href="https://github.com/realm/realm-java-benchmarks">super fast</a>*</li>
@@ -750,7 +753,7 @@ Daarbij zijn we uitgekomen op het Realm Mobile Platform.
             <li>Cross-platform: Android, iOS, Xamarin, React Native, Node.js, .Net Core</li>
         </ul>
     </li>
-    <li>
+    <li class="fragment">
         Realm Object Server
         <ul>
             <li>Synchronizes the local database with an online one</li>
