@@ -446,6 +446,32 @@ Bla
 ---
 
 
+# Frustrations in app development
+
+<ul>
+    <li>
+        Storage
+        <ul>
+            <li>Maintaining database schemas can become a chore</li>
+            <li>Lots of boilerplate code for storage and retrieval</li>
+        </ul>
+    </li>
+    <li>
+        Networking
+        <ul>
+            <li>Network can fail in many ways</li>
+            <li>Lots of boilerplate code for communicating with APIs</li>
+            <li>No built-in validation of data from APIs</li>
+        </ul>
+    </li>
+</ul>
+
+
++++
+
+![REST](assets/img/rest.png)
+
+
 # Realm Mobile Platform
 
 <ul>
