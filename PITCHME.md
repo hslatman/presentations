@@ -102,8 +102,8 @@
     <li class="greyed">
         Business Logic
         <ul>
-            <li><strike>Models the domain of the application</strike></li>
-            <li><strike>Defines the functionality of your app</strike></li>
+            <li>Models the domain of the application</li>
+            <li>Defines the functionality of your app</li>
         </ul>
     </li>
     <li>
@@ -121,10 +121,10 @@
             <li>An online backend</li>
         </ul>
     </li>
-    <li>
+    <li class="greyed">
         Hardware
     </li>
-    <li>
+    <li class="greyed">
         Diagnostics &amp; Logging
     </li>
 </ul>
