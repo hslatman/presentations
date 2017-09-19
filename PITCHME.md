@@ -507,6 +507,7 @@ Daarbij zijn we uitgekomen op het Realm Mobile Platform.
         <ul>
             <li>Synchronizes the local database with an online one</li>
             <li>Handles conflict resolution and network state</li>
+            <li>Allows multiple users to read and/or write in each others realms (when configured)</li>
             <li>Provides functions to be executed on data changes (currently you get 3 for free)</li>
         </ul>
     </li>
