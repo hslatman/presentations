@@ -149,7 +149,7 @@
             <li>Online data storage providers</li>
         </ul>
     </li>
-    <li>
+    <li class="fragment">
         Databases provide ways to:
         <ul>
             <li>Efficiently store (new) data</li>
@@ -158,7 +158,7 @@
             <li>Change existing data</li>
         </ul>
     </li>
-    <li>
+    <li class="fragment">
         SQLite is a popular database for mobile devices
     </li>
 </ul>
@@ -167,7 +167,7 @@
 +++
 
 
-# Example SQLite usage
+# Example SQLite usage (crash course)
 
 ``` 
 
@@ -413,7 +413,32 @@ SQLite is relatively small, simple to embed, has an embedded engine, provides br
 
 # Networking
 
-Bla
+<ul>
+    <li>
+        Many apps rely on external systems, e.g.:
+        <ul>
+            <li>Retrieve information about the weather</li>
+            <li>Post messages to friends</li>
+        </ul>
+    </li>
+    <li class="fragment">
+        External systems can be reached via a network, such as the internet
+        <ul>
+            But how can we communicate with them?
+        </ul>
+    </li>
+    <li class="fragment">
+        REST(ful) APIs are common
+    </li>
+    <li>
+        Others include:
+        <ul>
+            <li>SOAP (XML), which is old, but still around</li>
+            <li><a target="_blank" href="https://grpc.io/">gRPC</a>, an open source RPC framework</li>
+            <li>a target="_blank" href="https://grpc.io/">GraphQL</a>, which allows you easily query multiple APIs</li>
+        </ul>
+    </li>
+</ul>
 
 ---
 
@@ -423,14 +448,14 @@ Bla
 ## ... but there may be trouble ahead
 
 <ul>
-    <li>
+    <li class="fragment">
         Storage
         <ul>
             <li>Maintaining database schemas can become hard</li>
             <li>Lots of boilerplate code for storage and retrieval</li>
         </ul>
     </li>
-    <li>
+    <li class="fragment">
         Networking
         <ul>
             <li>Network can fail in many ways</li>
@@ -1018,7 +1043,7 @@ Paid options are available for more functions.
 +++
 
 
-# Demo: RealmTasks
+# Demo: Realm Tasks
 
 <ul>
     <li>Running within iOS emulator</li>
@@ -1029,7 +1054,7 @@ Paid options are available for more functions.
 
 +++
 
-# Demo: RealmDraw
+# Demo: Realm Draw
 
 <ul>
     <li>Real-time sharing of drawings</li>
