@@ -600,11 +600,13 @@ public class TaskListAdapter extends CommonAdapter<TaskList> implements TouchHel
 
 # Demo: Realm Object Server
 
-<ul>
-    <li>Realm Object Server Developer Edition is free to use!</li>
-</ul>
+Realm Object Server Developer Edition is free to use!*
+
+Paid options are available for more functions.
 
 <a target="_blank" href="http://ros-test.spinpos.com:9080/">Realm Object Server</a>
+
+<h6>*Free as in free beer</h6>
 
 
 +++
