@@ -446,7 +446,9 @@ Bla
 ---
 
 
-# Frustrations in app development
+# All seems well...
+
+## ... but there may be trouble ahead
 
 <ul>
     <li>
@@ -472,6 +474,11 @@ Bla
 ![REST](assets/img/rest.png)
 
 ---
+
+# Can we make this easier?
+
++++
+
 
 # Realm Mobile Platform
 
