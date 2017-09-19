@@ -141,7 +141,7 @@ Bla
 
 ---
 
-# Demo - Example Code
+# Demo - Example Android Code
 
 ## User Registration
 
@@ -637,12 +637,22 @@ public class TaskListAdapter extends CommonAdapter<TaskList> implements TouchHel
 
 # Demo: Realm Object Server
 
+<ul>
+    <li>Realm Object Server Developer Edition is free to use!</li>
+</ul>
+
 <a target="_blank" href="http://ros-test.spinpos.com:9080/">Realm Object Server</a>
 
 
++++
+
+# Demo: Drawing App
 
 
----
+
+
+---?image=http://i.giphy.com/90F8aUepslB84.gif
+
 
 # (Additional) Resources
 
