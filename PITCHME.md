@@ -600,7 +600,7 @@ public class TaskListAdapter extends CommonAdapter<TaskList> implements TouchHel
 
 # Demo: Realm Object Server
 
-Realm Object Server Developer Edition is free to use!*
+Realm Object Server Developer Edition is free* to use!
 
 Paid options are available for more functions.
 
@@ -611,7 +611,18 @@ Paid options are available for more functions.
 
 +++
 
-# Demo: Drawing App
+
+# Demo: RealmTasks
+
+<ul>
+    <li>Running within iOS emulator</li>
+    <li>Synchronized with the Realm Object Server</li>
+</ul>
+
+
++++
+
+# Demo: RealmDraw
 
 <ul>
     <li>Real-time sharing of drawings</li>
@@ -620,6 +631,7 @@ Paid options are available for more functions.
 </ul>
 
 +++?image=http://i.giphy.com/90F8aUepslB84.gif
+
 
 # Such Wow!
 
