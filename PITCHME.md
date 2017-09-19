@@ -462,6 +462,14 @@ Bla
             <li>Use a different type of local database, like <a target="_blank" href="http://objectbox.io/">ObjectBox</a>
         </ul>
     </li>
+    <li>
+        Networking
+        <ul>
+            <li>Handle (large) images with <a target="_blank" href="http://square.github.io/picasso/">Picasso</a>
+            <li>Improve handling JSON using <a target="_blank" href="https://github.com/FasterXML/jackson">Jackson</a> or <a target="_blank" href="https://github.com/square/moshi">Moshi</a></li>
+            <li>Automatically map RESTful API endpoints (and error handling!) with <a target="_blank" href="http://square.github.io/retrofit/">Retrofit</a>
+        </ul>
+    </li>
 </ul>
 
 
