@@ -100,7 +100,7 @@
         </ul>
     </li>
     <li class="greyed">
-        <strike>Business Logic</strike>
+        Business Logic
         <ul>
             <li><strike>Models the domain of the application</strike></li>
             <li><strike>Defines the functionality of your app</strike></li>
