@@ -24,9 +24,6 @@
   <li>
     Contact information @ <a target="_blank" href="https://hermanslatman.nl/contact.html">https://hermanslatman.nl/contact.html</a>
   </li>
-  <li>
-    <a href="mailto:herman@extendas.com" target="_blank">herman@extendas.com</a>
-  </li>
 </ul>
 
 ---
