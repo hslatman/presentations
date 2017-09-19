@@ -723,3 +723,5 @@ Paid options are available for more functions.
     <li><a href="https://www.extendas.com" target="_blank">Extendas</a></li>
     <li><a href="https://www.extendas.com/corporate/vacatures/" target="_blank">Vacatures</a></li>
 </ul>
+
+![Logo](assets/img/Extendas.png)
