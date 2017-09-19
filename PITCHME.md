@@ -199,6 +199,8 @@
 
 ``` 
 
+// SOURCE: http://hmkcode.com/android-simple-sqlite-database-tutorial/
+
 public class Book {
 
 	private int id;
@@ -327,7 +329,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 		List<Book> books = new LinkedList<Book>();
 
 		// 1. build the query
-		String query = "SELECT  * FROM " + TABLE_BOOKS;
+		String query = "SELECT * FROM " + TABLE_BOOKS;
 
 		// 2. get reference to writable DB
 		SQLiteDatabase db = this.getWritableDatabase();
@@ -395,6 +397,38 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
 	}
 }
+
+
+public class MainActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		MySQLiteHelper db = new MySQLiteHelper(this);
+
+		/**
+		 * CRUD Operations
+		 * */
+		// add Books
+		db.addBook(new Book("Android Application Development Cookbook", "Wei Meng Lee"));   
+		db.addBook(new Book("Android Programming: The Big Nerd Ranch Guide", "Bill Phillips and Brian Hardy"));       
+		db.addBook(new Book("Learn Android App Development", "Wallace Jackson"));
+
+		// get all books
+		List<Book> list = db.getAllBooks();
+
+		// delete one book
+		db.deleteBook(list.get(0));
+
+		// get all books
+		db.getAllBooks();
+
+	}
+}
+
+
 ```
 
 Note:
