@@ -93,7 +93,7 @@
 # Today:
 
 <ul>
-    <li>
+    <li class="greyed">
         User Interface
         <ul>
             <li>Defines what users see</li>
@@ -133,6 +133,7 @@
 
 ---
 
+<!--
 
 # User Interface
 
@@ -161,6 +162,8 @@
 
 
 ---
+
+-->
 
 # Storage
 
@@ -454,7 +457,7 @@ Bla
     <li>
         Storage
         <ul>
-            <li>Maintaining database schemas can become a chore</li>
+            <li>Maintaining database schemas can become hard</li>
             <li>Lots of boilerplate code for storage and retrieval</li>
         </ul>
     </li>
@@ -478,6 +481,19 @@ Bla
 # Can we make this easier?
 
 +++
+
+# Partial solutions
+
+<ul>
+    <li>
+        Storage
+        <ul>
+            <li>Use an ORM, like <a target="_blank" href="https://github.com/greenrobot/greenDAO">greenDAO</a></li>
+            <li>Use a realtime, online database with local persistence, like <a target="_blank" href="https://firebase.google.com/docs/database/">Firebase</a>
+            <li>Use a different type of local database, like <a target="_blank" href="http://objectbox.io/">ObjectBox</a>
+        </ul>
+    </li>
+</ul>
 
 
 # Realm Mobile Platform
