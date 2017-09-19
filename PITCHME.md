@@ -497,7 +497,7 @@ Daarbij zijn we uitgekomen op het Realm Mobile Platform.
         <ul>
             <li>Queries are <a target="_blank" href="https://github.com/realm/realm-java-benchmarks">super fast</a>*</li>
             <li>Object definitions become simple and define the schema</li>
-            <li>Changes to data can update the user interface (almost) instantly</li>
+            <li>Changes to data <b><i>can</i></b> update the user interface (almost) instantly</li>
             <li>Takes less space to store the same kind of data (in general)</li>
             <li>Cross-platform: Android, iOS, Xamarin, React Native, Node.js, .Net Core</li>
         </ul>
@@ -767,209 +767,236 @@ public class SignInActivity extends AppCompatActivity implements SyncUser.Callba
 
 ``` 
 
-public class TaskListActivity extends AppCompatActivity {
+... Removed some imports
 
-    private Realm realm;
-    private RecyclerViewWithEmptyViewSupport recyclerView;
-    private TaskListAdapter adapter;
-    private TouchHelper touchHelper;
-    private RealmResults<TaskListList> list;
-    private boolean logoutAfterClose;
+public class TaskActivity extends AppCompatActivity {
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_common_list);
-        recyclerView = (RecyclerViewWithEmptyViewSupport) findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setEmptyView(findViewById(R.id.empty_view));
-    }
+	public static final String EXTRA_LIST_ID = "extra.list_id";
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (touchHelper != null) {
-            touchHelper.attachToRecyclerView(null);
-        }
-        adapter = null;
-        realm = Realm.getDefaultInstance();
-        list = realm.where(TaskListList.class).findAll();
-        list.addChangeListener(new RealmChangeListener<RealmResults<TaskListList>>() {
-            @Override
-            public void onChange(RealmResults<TaskListList> results) {
-                updateList(results);
-            }
-        });
-        updateList(list);
-    }
+	private Realm realm;
+	private RecyclerViewWithEmptyViewSupport recyclerView;
+	private TaskAdapter adapter;
+	private TouchHelper touchHelper;
+	private String id;
+	RealmResults<TaskList> list;
+	private boolean logoutAfterClose;
+	
+	... Some code omitted for brevity
 
-    private void updateList(RealmResults<TaskListList> results) {
+	@Override
+	protected void onStart() {
+		super.onStart();
+		if (touchHelper != null) {
+			touchHelper.attachToRecyclerView(null);
+		}
+		adapter = null;
+		realm = Realm.getDefaultInstance();
+		list = realm.where(TaskList.class).equalTo(TaskList.FIELD_ID, id).findAll();
+		list.addChangeListener(new RealmChangeListener<RealmResults<TaskList>>() {
+			@Override
+			public void onChange(RealmResults<TaskList> results) {
+				updateList(results);
+			}
+		});
+		updateList(list);
+	}
 
-        if (results.size() > 0 && adapter == null) {
+	private void updateList(RealmResults<TaskList> results) {
+		// Use `findAllAsync` because change listeners are not called when items are deleted and using `findFirst()`
+		// See https://github.com/realm/realm-java/issues/3138
+		if (results.size() > 0) {
+			TaskList element = results.first();
+			setTitle(element.getText());
+			if (adapter == null) {
+				adapter = new TaskAdapter(TaskActivity.this, element.getItems());
+				touchHelper = new TouchHelper(new Callback(), adapter);
+				touchHelper.attachToRecyclerView(recyclerView);
+			}
+		} else {
+			setTitle(getString(R.string.title_deleted));
+		}
+	}
 
-            // Code omitted for brevity
+	@Override
+	protected void onStop() {
+		if (adapter != null) {
+			touchHelper.attachToRecyclerView(null);
+			adapter = null;
+		}
+		realm.removeAllChangeListeners();
+		realm.close();
+		realm = null;
+		if (logoutAfterClose) {
+			/*
+			 * We need call logout() here since onCreate() of the next Activity is already
+			 * executed before reaching here.
+			 */
+			UserManager.logoutActiveUser();
+			logoutAfterClose = false;
+		}
 
-            // Create Adapter
-            adapter = new TaskListAdapter(TaskListActivity.this, results.first().getItems());
-            touchHelper = new TouchHelper(new Callback(), adapter);
-            touchHelper.attachToRecyclerView(recyclerView);
-        }
-    }
+		super.onStop();
+	}
 
-    @Override
-    protected void onStop() {
-        list.removeChangeListeners();
-        if (adapter != null) {
-            touchHelper.attachToRecyclerView(null);
-            adapter = null;
-        }
-        realm.removeAllChangeListeners();
-        realm.close();
-        realm = null;
-        if (logoutAfterClose) {
-            /*
-             * We need call logout() here since onCreate() of the next Activity is already
-             * executed before reaching here.
-             */
-            UserManager.logoutActiveUser();
-            logoutAfterClose = false;
-        }
-        super.onStop();
-    }
+	private class Callback implements TouchHelper.Callback {
 
-    private class Callback implements TouchHelper.Callback {
+		@Override
+		public void onMoved(RecyclerView recyclerView, ItemViewHolder from, ItemViewHolder to) {
+			final int fromPosition = from.getAdapterPosition();
+			final int toPosition = to.getAdapterPosition();
+			adapter.onItemMoved(fromPosition, toPosition);
+			adapter.notifyItemMoved(fromPosition, toPosition);
+		}
 
-        @Override
-        public void onMoved(RecyclerView recyclerView, ItemViewHolder from, ItemViewHolder to) {
-            final int fromPosition = from.getAdapterPosition();
-            final int toPosition = to.getAdapterPosition();
-            adapter.onItemMoved(fromPosition, toPosition);
-            adapter.notifyItemMoved(fromPosition, toPosition);
-        }
+		@Override
+		public void onCompleted(ItemViewHolder viewHolder) {
+			adapter.onItemCompleted(viewHolder.getAdapterPosition());
+			adapter.notifyDataSetChanged();
+		}
 
-        @Override
-        public void onCompleted(ItemViewHolder viewHolder) {
-            adapter.onItemCompleted(viewHolder.getAdapterPosition());
-            adapter.notifyDataSetChanged();
-        }
+		@Override
+		public void onDismissed(ItemViewHolder viewHolder) {
+			final int position = viewHolder.getAdapterPosition();
+			adapter.onItemDismissed(position);
+			adapter.notifyItemRemoved(position);
+		}
 
-        @Override
-        public void onDismissed(ItemViewHolder viewHolder) {
-            final int position = viewHolder.getAdapterPosition();
-            adapter.onItemDismissed(position);
-            adapter.notifyItemRemoved(position);
-        }
+		@Override
+		public void onChanged(ItemViewHolder viewHolder) {
+			adapter.onItemChanged(viewHolder);
+			adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+		}
 
-        @Override
-        public boolean onClicked(ItemViewHolder viewHolder) {
-            final int position = viewHolder.getAdapterPosition();
-            final TaskList taskList = adapter.getItem(position);
-            final String id = taskList.getId();
-            final Intent intent = new Intent(TaskListActivity.this, TaskActivity.class);
-            intent.putExtra(TaskActivity.EXTRA_LIST_ID, id);
-            TaskListActivity.this.startActivity(intent);
-            return true;
-        }
+		@Override
+		public void onAdded() {
+			adapter.onItemAdded();
+			adapter.notifyItemInserted(0);
+		}
 
-        @Override
-        public void onChanged(ItemViewHolder viewHolder) {
-            adapter.onItemChanged(viewHolder);
-            adapter.notifyItemChanged(viewHolder.getAdapterPosition());
-        }
-
-        @Override
-        public void onAdded() {
-            adapter.onItemAdded();
-            adapter.notifyItemInserted(0);
-        }
-
-    }
+		@Override
+		public void onReverted(boolean shouldUpdateUI) {
+			adapter.onItemReverted();
+			if (shouldUpdateUI) {
+				adapter.notifyDataSetChanged();
+			}
+		}
+	}
 }
 
-public class TaskListAdapter extends CommonAdapter<TaskList> implements TouchHelperAdapter {
 
-    public TaskListAdapter(Context context, OrderedRealmCollection<TaskList> items) {
-        super(context, items);
-    }
 
-    @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        super.onBindViewHolder(holder, position);
-        final ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
-        final TaskList taskList = getItem(position);
-        itemViewHolder.getText().setText(taskList.getText());
-        itemViewHolder.setBadgeVisible(true);
-        final long badgeCount = taskList.getItems().where().equalTo(TaskList.FIELD_COMPLETED, false).count();
-        itemViewHolder.setBadgeCount((int) badgeCount);
-        itemViewHolder.setCompleted(taskList.isCompleted());
-    }
+public class TaskAdapter extends CommonAdapter<Task> implements TouchHelperAdapter {
 
-    @Override
-    public void onItemAdded() {
-        final Realm realm = Realm.getDefaultInstance();
-        realm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-                final TaskList taskList = new TaskList();
-                taskList.setId(UUID.randomUUID().toString());
-                taskList.setText("");
-                getData().add(0, taskList);
-            }
-        });
-        realm.close();
-    }
+	public TaskAdapter(Context context, OrderedRealmCollection<Task> items) {
+		super(context, items);
+	}
 
-    @Override
-    public void onItemMoved(final int fromPosition, final int toPosition) {
-        final Realm realm = Realm.getDefaultInstance();
-        realm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-                moveItems(fromPosition, toPosition);
-            }
-        });
-        realm.close();
-    }
+	@Override
+	public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+		super.onBindViewHolder(holder, position);
 
-    @Override
-    public void onItemCompleted(final int position) {
-        final TaskList taskList = getItem(position);
-        final Realm realm = Realm.getDefaultInstance();
-        final int count = (int) getData().where().equalTo(TaskList.FIELD_COMPLETED, false).count();
-        realm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-                if (!taskList.isCompleted()) {
-                    if (taskList.isCompletable()) {
-                        taskList.setCompleted(true);
-                        moveItems(position, count - 1);
-                    } else {
-                        Toast.makeText(context, R.string.no_item, Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    taskList.setCompleted(false);
-                    moveItems(position, count);
-                }
-            }
-        });
-        realm.close();
-    }
+        ... Code omitted for brevity
+	}
 
-    @Override
-    public void onItemChanged(final ItemViewHolder viewHolder) {
-        final Realm realm = Realm.getDefaultInstance();
-        final int position = viewHolder.getAdapterPosition();
+	@Override
+	public void onItemAdded() {
+		final Realm realm = Realm.getDefaultInstance();
+		realm.executeTransaction(new Realm.Transaction() {
+			@Override
+			public void execute(Realm realm) {
+				// TaskList might have been deleted, in that case, don't create any new.
+				if (getData().isValid()) {
+					final Task task = realm.createObject(Task.class);
+					task.setText("");
+					getData().add(0, task);
+				}
+			}
+		});
+		realm.close();
+	}
 
-        realm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-                TaskList taskList = getItem(position);
-                taskList.setText(viewHolder.getText().getText().toString());
-            }
-        });
-        realm.close();
-    }
+	@Override
+	public void onItemMoved(final int fromPosition, final int toPosition) {
+		final Realm realm = Realm.getDefaultInstance();
+		realm.executeTransaction(new Realm.Transaction() {
+			@Override
+			public void execute(Realm realm) {
+				moveItems(fromPosition, toPosition);
+			}
+		});
+		realm.close();
+	}
+
+	@Override
+	public void onItemCompleted(final int position) {
+		final Task task = getData().get(position);
+		final Realm realm = Realm.getDefaultInstance();
+		final int count = (int) getData().where().equalTo(Task.FIELD_COMPLETED, false).count();
+		realm.executeTransaction(new Realm.Transaction() {
+			@Override
+			public void execute(Realm realm) {
+				if (!task.isCompleted()) {
+					task.setCompleted(true);
+					moveItems(position, count - 1);
+				} else {
+					task.setCompleted(false);
+					moveItems(position, count);
+				}
+			}
+		});
+		realm.close();
+	}
+
+	@Override
+	public void onItemDismissed(final int position) {
+		final Realm realm = Realm.getDefaultInstance();
+		realm.executeTransaction(new Realm.Transaction() {
+			@Override
+			public void execute(Realm realm) {
+				final Task task = getData().get(position);
+				task.deleteFromRealm();
+			}
+		});
+		realm.close();
+	}
+
+	@Override
+	public void onItemReverted() {
+		if (getData().size() == 0) {
+			return;
+		}
+		final Realm realm = Realm.getDefaultInstance();
+		realm.executeTransaction(new Realm.Transaction() {
+			@Override
+			public void execute(Realm realm) {
+				final Task task = getData().get(0);
+				task.deleteFromRealm();
+			}
+		});
+		realm.close();
+	}
+
+	@Override
+	public void onItemChanged(final ItemViewHolder viewHolder) {
+		final Realm realm = Realm.getDefaultInstance();
+		final int position = viewHolder.getAdapterPosition();
+		if (position < 0) {
+			realm.close();
+			return;
+		}
+		realm.executeTransaction(new Realm.Transaction() {
+			@Override
+			public void execute(Realm realm) {
+				Task task = getData().get(position);
+				task.setText(viewHolder.getText().getText().toString());
+				task.setDate(null); // remove date on text change, server will set
+									// new value if there is a value to be set.
+			}
+		});
+		realm.close();
+	}
 }
+
 
 ```
 
