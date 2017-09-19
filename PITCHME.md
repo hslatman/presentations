@@ -99,7 +99,7 @@
             <li>Allows users to interact with the app</li>
         </ul>
     </li>
-    <li class=".alpha60">
+    <li class="alpha60">
         <strike>Business Logic</strike>
         <ul>
             <li><strike>Models the domain of the application</strike></li>
