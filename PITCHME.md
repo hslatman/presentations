@@ -415,7 +415,7 @@ SQLite is relatively small, simple to embed, has an embedded engine, provides br
 
 <ul>
     <li>
-        Many apps rely on external systems, e.g.:
+        Many apps rely on external systems
         <ul>
             <li>Retrieve information about the weather</li>
             <li>Post messages to friends</li>
@@ -430,12 +430,12 @@ SQLite is relatively small, simple to embed, has an embedded engine, provides br
     <li class="fragment">
         REST(ful) APIs are common
     </li>
-    <li>
+    <li class="fragment">
         Others include:
         <ul>
             <li>SOAP (XML), which is old, but still around</li>
             <li><a target="_blank" href="https://grpc.io/">gRPC</a>, an open source RPC framework</li>
-            <li>a target="_blank" href="https://grpc.io/">GraphQL</a>, which allows you easily query multiple APIs</li>
+            <li><a target="_blank" href="https://grpc.io/">GraphQL</a>, which allows you easily query multiple APIs</li>
         </ul>
     </li>
 </ul>
