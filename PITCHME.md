@@ -141,7 +141,15 @@ Bla
 
 ---
 
-# Demo - Example Android Code
+# Demo
+
+<ul>
+    <li>Some example Android code</li>
+    <li>Realm Object Server backend</li>
+    <li>Example application</li>
+</ul>
+
++++
 
 ## User Registration
 
@@ -651,7 +659,7 @@ public class TaskListAdapter extends CommonAdapter<TaskList> implements TouchHel
 <ul>
     <li>Real-time sharing of drawings</li>
     <li>Android and iOS can draw together</li>
-    <li>Avaliable at <a href="_blank" target="https://github.com/realm-demos/realm-draw">GitHub</a></li>
+    <li>Available at <a target="_blank" href="https://github.com/realm-demos/realm-draw">GitHub</a></li>
 </ul>
 
 +++?image=http://i.giphy.com/90F8aUepslB84.gif
