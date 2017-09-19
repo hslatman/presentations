@@ -424,7 +424,7 @@ SQLite is relatively small, simple to embed, has an embedded engine, provides br
     <li class="fragment">
         External systems can be reached via a network, such as the internet
         <ul>
-            But how can we communicate with them?
+            <li>But how can we communicate with them?</li>
         </ul>
     </li>
     <li class="fragment">
@@ -435,10 +435,19 @@ SQLite is relatively small, simple to embed, has an embedded engine, provides br
         <ul>
             <li>SOAP (XML), which is old, but still around</li>
             <li><a target="_blank" href="https://grpc.io/">gRPC</a>, an open source RPC framework</li>
-            <li><a target="_blank" href="https://grpc.io/">GraphQL</a>, which allows you easily query multiple APIs</li>
+            <li><a target="_blank" href="https://grpc.io/">GraphQL</a>, which allows you to easily query multiple APIs</li>
         </ul>
     </li>
 </ul>
+
+
++++
+
+# Example RESTful API
+
+
+
+
 
 ---
 
@@ -451,7 +460,7 @@ SQLite is relatively small, simple to embed, has an embedded engine, provides br
     <li class="fragment">
         Storage
         <ul>
-            <li>Maintaining database schemas can become hard</li>
+            <li>Maintaining database schemas can become hard or a lot of work</li>
             <li>Lots of boilerplate code for storage and retrieval</li>
         </ul>
     </li>
