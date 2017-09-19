@@ -1052,6 +1052,7 @@ Paid options are available for more functions.
     <li><a href="https://github.com/realm-demos" target="_blank">Realm Demos</a></li>
     <li><a href="https://www.extendas.com" target="_blank">Extendas</a></li>
     <li><a href="https://www.extendas.com/corporate/vacatures/" target="_blank">Vacatures</a></li>
+    <li>(Meeloop)stages en afstudeeropdrachten: <a href="mailto:herman@extendas.com" target="_blank">herman@extendas.com</a></li>
 </ul>
 
 ![Logo](assets/img/Extendas.png)
