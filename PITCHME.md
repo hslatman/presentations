@@ -201,67 +201,67 @@
 
 public class Book {
 
-	private int id;
-	private String title;
-	private String author;
+    private int id;
+    private String title;
+    private String author;
 
-	public Book(){}
+    public Book(){}
 
-	public Book(String title, String author) {
-		super();
-		this.title = title;
-		this.author = author;
-	}
+    public Book(String title, String author) {
+        super();
+        this.title = title;
+        this.author = author;
+    }
 
-	//getters & setters
+    //getters & setters
 
-	@Override
-	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", author=" + author
-				+ "]";
-	}
+    @Override
+    public String toString() {
+        return "Book [id=" + id + ", title=" + title + ", author=" + author
+                + "]";
+    }
 }
 
 
 
 public class MySQLiteHelper extends SQLiteOpenHelper {
-
-	// Database Version
+    
+    // Database Version
     private static final int DATABASE_VERSION = 1;
     // Database Name
     private static final String DATABASE_NAME = "BookDB";
 
-	public MySQLiteHelper(Context context) {
-		super(context, DATABASE_NAME, null, DATABASE_VERSION);	
-	}
+    public MySQLiteHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);	
+    }
 
-	@Override
-	public void onCreate(SQLiteDatabase db) {
-		// SQL statement to create book table
-		String CREATE_BOOK_TABLE = "CREATE TABLE books ( " +
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        // SQL statement to create book table
+        String CREATE_BOOK_TABLE = "CREATE TABLE books ( " +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " + 
-				"title TEXT, "+
-				"author TEXT )";
+                "title TEXT, "+
+                "author TEXT )";
 
-		// create books table
-		db.execSQL(CREATE_BOOK_TABLE);
-	}
+        // create books table
+        db.execSQL(CREATE_BOOK_TABLE);
+    }
 
-	@Override
-	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// Drop older books table if existed
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Drop older books table if existed
         db.execSQL("DROP TABLE IF EXISTS books");
 
         // create fresh books table
         this.onCreate(db);
-	}
-	//---------------------------------------------------------------------
+    }
+    //---------------------------------------------------------------------
 
-	/**
+    /**
      * CRUD operations (create "add", read "get", update, delete) book + get all books + delete all books
      */
 
-	// Books table name
+    // Books table name
     private static final String TABLE_BOOKS = "books";
 
     // Books Table Columns names
@@ -271,35 +271,35 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     private static final String[] COLUMNS = {KEY_ID,KEY_TITLE,KEY_AUTHOR};
 
-	public void addBook(Book book){
-		Log.d("addBook", book.toString());
-		// 1. get reference to writable DB
-		SQLiteDatabase db = this.getWritableDatabase();
+    public void addBook(Book book){
+        Log.d("addBook", book.toString());
+        // 1. get reference to writable DB
+        SQLiteDatabase db = this.getWritableDatabase();
 
-		// 2. create ContentValues to add key "column"/value
+        // 2. create ContentValues to add key "column"/value
         ContentValues values = new ContentValues();
         values.put(KEY_TITLE, book.getTitle()); // get title 
         values.put(KEY_AUTHOR, book.getAuthor()); // get author
 
         // 3. insert
         db.insert(TABLE_BOOKS, // table
-        		null, //nullColumnHack
-        		values); // key/value -> keys = column names/ values = column values
+                null, //nullColumnHack
+                values); // key/value -> keys = column names/ values = column values
 
         // 4. close
         db.close(); 
-	}
+    }
 
-	public Book getBook(int id){
+    public Book getBook(int id){
 
-		// 1. get reference to readable DB
-		SQLiteDatabase db = this.getReadableDatabase();
+        // 1. get reference to readable DB
+        SQLiteDatabase db = this.getReadableDatabase();
 
-		// 2. build query
+        // 2. build query
         Cursor cursor = 
-        		db.query(TABLE_BOOKS, // a. table
-        		COLUMNS, // b. column names
-        		" id = ?", // c. selections 
+                db.query(TABLE_BOOKS, // a. table
+                COLUMNS, // b. column names
+                " id = ?", // c. selections 
                 new String[] { String.valueOf(id) }, // d. selections args
                 null, // e. group by
                 null, // f. having
@@ -316,20 +316,20 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         book.setTitle(cursor.getString(1));
         book.setAuthor(cursor.getString(2));
 
-		Log.d("getBook("+id+")", book.toString());
+        Log.d("getBook("+id+")", book.toString());
 
         // 5. return book
         return book;
-	}
+    }
 
-	// Get All Books
+    // Get All Books
     public List<Book> getAllBooks() {
         List<Book> books = new LinkedList<Book>();
 
         // 1. build the query
         String query = "SELECT  * FROM " + TABLE_BOOKS;
 
-    	// 2. get reference to writable DB
+        // 2. get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
 
@@ -337,7 +337,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         Book book = null;
         if (cursor.moveToFirst()) {
             do {
-            	book = new Book();
+                book = new Book();
                 book.setId(Integer.parseInt(cursor.getString(0)));
                 book.setTitle(cursor.getString(1));
                 book.setAuthor(cursor.getString(2));
@@ -347,27 +347,27 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
-		Log.d("getAllBooks()", books.toString());
+        Log.d("getAllBooks()", books.toString());
 
         // return books
         return books;
     }
 
-	 // Updating single book
+     // Updating single book
     public int updateBook(Book book) {
 
-    	// 1. get reference to writable DB
+        // 1. get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
 
-		// 2. create ContentValues to add key "column"/value
+        // 2. create ContentValues to add key "column"/value
         ContentValues values = new ContentValues();
         values.put("title", book.getTitle()); // get title 
         values.put("author", book.getAuthor()); // get author
 
         // 3. updating row
         int i = db.update(TABLE_BOOKS, //table
-        		values, // column/value
-        		KEY_ID+" = ?", // selections
+                values, // column/value
+                KEY_ID+" = ?", // selections
                 new String[] { String.valueOf(book.getId()) }); //selection args
 
         // 4. close
@@ -380,18 +380,18 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     // Deleting single book
     public void deleteBook(Book book) {
 
-    	// 1. get reference to writable DB
+        // 1. get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
 
         // 2. delete
         db.delete(TABLE_BOOKS,
-        		KEY_ID+" = ?",
+                KEY_ID+" = ?",
                 new String[] { String.valueOf(book.getId()) });
 
         // 3. close
         db.close();
 
-		Log.d("deleteBook", book.toString());
+        Log.d("deleteBook", book.toString());
 
     }
 }
