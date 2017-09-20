@@ -2,6 +2,26 @@
 
 ---
 
+# Introduction
+
+<ul>
+    <li>
+        Mobile app development basics
+    </li>
+    <li>
+        Potential problems with storage and networking
+    </li>
+    <li>
+        Fast tracking app development with Realm Mobile Platform
+    </li>
+    <li>
+        Demos
+    </li>
+</ul>
+
+
+---
+
 # WHOAMI
 
 <ul>
@@ -26,24 +46,6 @@
   </li>
 </ul>
 
----
-
-# Introduction
-
-<ul>
-    <li>
-        Mobile app development basics
-    </li>
-    <li>
-        Potential problems with storage and networking
-    </li>
-    <li>
-        Fast tracking app development with Realm Mobile Platform
-    </li>
-    <li>
-        Demos
-    </li>
-</ul>
 
 ---
 
