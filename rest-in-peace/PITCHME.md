@@ -693,7 +693,7 @@ POST https://api.twitter.com/1.1/statuses/retweet/243149503589400576.json
 
 +++
 
-![REST](assets/img/rest.png)
+![REST](./../assets/img/rest.png)
 
 ---
 
@@ -1306,4 +1306,4 @@ Paid options are available for more functions.
     <li>(Meeloop)stages en afstudeeropdrachten: <a href="mailto:herman@extendas.com" target="_blank">herman@extendas.com</a></li>
 </ul>
 
-![Logo](assets/img/Extendas.png)
+![Logo](./../assets/img/Extendas.png)
