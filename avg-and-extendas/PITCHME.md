@@ -52,6 +52,17 @@
             </li>
         </ul>
     </li>
+    <li>
+        omvat niet de nieuwe ePrivacy regelgeving (_lex specialis_)
+        <ul>
+            <li>
+                Digitale communicatie kanalen (e-mail marketing, cookies en analytics)
+            </li>
+            <li>
+                25 mei 2018 (gepland)
+            </li>
+        </ul>
+    </li>
 </ul>
 
 +++
@@ -91,7 +102,7 @@
 
 <ul>
     <li>
-        Van toepassing op *verwerking van* persoonsgegevens
+        *Verwerking van* persoonsgegevens
         <ul>
             <li>
                 Opslaan
@@ -132,7 +143,7 @@
         </ul>
     </li>
     <li>
-        Het opzetten en bijhouden van een register met gegevensverwerkingen
+        Register met gegevensverwerkingen opbouwen
     </li>
     <li>
         Bij nieuwe systemen moeten:
@@ -175,7 +186,7 @@
         </ul>
     </li>
     <li>
-        Er moeten passende technische en organisatorische maatregelen getroffen worden
+        Passende technische en organisatorische maatregelen
     </li>
 </ul>
 
