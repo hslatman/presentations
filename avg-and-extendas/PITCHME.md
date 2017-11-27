@@ -47,6 +47,9 @@
             <li>
                 documentatie gegevensverwerkingen
             </li>
+            <li>
+                er moet rekening gehouden worden met _privacy by design_ & _privacy by default_
+            </li>
         </ul>
     </li>
 </ul>
@@ -75,7 +78,7 @@
                 Betaalgegevens
             </li>
             <li>
-                Etc...
+                ...
             </li>
         </ul> 
     </li>
@@ -100,7 +103,7 @@
                 Doorsturen
             </li>
             <li>
-                Etc...
+                ...
             </li>
         </ul> 
     </li>
@@ -111,10 +114,9 @@
 
 # De AVG in een Notendop (III)
 
+## Grootste verschillen t.o.v. AVG:
+
 <ul>
-    <li>
-        Grootste verschillen t.o.v. AVG:
-    </li>
     <li>
         De betrokkene heeft het recht om:
         <ul>
@@ -132,6 +134,17 @@
     <li>
         Het opzetten en bijhouden van een register met gegevensverwerkingen
     </li>
+    <li>
+        Bij nieuwe systemen moeten:
+        <ul>
+            <li>
+                zo min mogelijk persoonsgegevens verwerkt worden
+            </li>
+            <li>
+                betrokkenen beslissen welke persoonsgegevens gebruikt mogen worden
+            </li>
+        </ul>
+    </li>
 </ul>
 
 ---
@@ -140,13 +153,13 @@
 
 <ul>
     <li>
-        Extendas verwerkt diverse persoonsgegevens
+        We verwerken diverse persoonsgegevens
         <ul>
             <li>
                 (Kaart)transacties, NAW-gegevens, e-mailadressen, enz.
             </li>
             <li>
-                Maar ook personeelsgegevens en gegevens van klanten van Extendas (CRM)
+                Maar ook personeelsgegevens (Exact) en gegevens van klanten van Extendas (CRM)
             </li>
         </ul>
     </li>
@@ -154,10 +167,10 @@
         In principe toegestaan, mits:
         <ul>
             <li>
-                deze op zorgvuldige wijze plaastsvindt
+                deze op zorgvuldige wijze plaastsvinden
             </li>
             <li>
-                deze voldoet aan de grondslag voor verwerking
+                deze voldoen aan de grondslag voor verwerking
             </li>
         </ul>
     </li>
