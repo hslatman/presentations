@@ -214,10 +214,10 @@
 
 <ul>
     <li>
-        <a href="https://autoriteitpersoonsgegevens.nl/sites/default/files/atoms/files/de_avg_in_een_notendop.pdf" target="_blank">De AVG in een notendop</a>
+        <a href="https://docs.google.com/document/d/1YS2_js7VkS0DqbjAF8VWr_VA5YC3Qe-jJnxgLW3j7A8/view" target="_blank">PVA AVG</a>
     </li>
     <li>
-        <a href="https://docs.google.com/document/d/1YS2_js7VkS0DqbjAF8VWr_VA5YC3Qe-jJnxgLW3j7A8/view" target="_blank">PVA AVG</a>
+        <a href="https://autoriteitpersoonsgegevens.nl/sites/default/files/atoms/files/de_avg_in_een_notendop.pdf" target="_blank">De AVG in een notendop</a>
     </li>
     <li>
         <a href="https://autoriteitpersoonsgegevens.nl/nl/onderwerpen/avg-nieuwe-europese-privacywetgeving" target="_blank">AVG - Nieuwe Europese wetgeving</a>
