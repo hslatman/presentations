@@ -38,11 +38,22 @@
     <li>
         Privacywetgeving geldend voor geheel Europa
     </li>
+    <li>
+        Grootste verschillen t.o.v. AVG:
+        <ul>
+            <li>
+                de mate van controle van betrokkene
+            </li>
+            <li>
+                documentatie gegevensverwerkingen
+            </li>
+        </ul>
+    </li>
 </ul>
 
 +++
 
-# Wat houdt de AVG in?
+# De AVG in een Notendop (I)
 
 <ul>
     <li>
@@ -64,7 +75,7 @@
                 Betaalgegevens
             </li>
             <li>
-                En meer...
+                Etc...
             </li>
         </ul> 
     </li>
@@ -73,7 +84,7 @@
 
 +++
 
-Wat houdt de AVG in?
+# De AVG in een Notendop (II)
 
 <ul>
     <li>
@@ -89,9 +100,37 @@ Wat houdt de AVG in?
                 Doorsturen
             </li>
             <li>
-                En meer...
+                Etc...
             </li>
         </ul> 
+    </li>
+</ul>
+
+
++++
+
+# De AVG in een Notendop (III)
+
+<ul>
+    <li>
+        Grootste verschillen t.o.v. AVG:
+    </li>
+    <li>
+        De betrokkene heeft het recht om:
+        <ul>
+            <li>
+                gegevens in te zien en te (laten) wijzigen
+            </li>
+            <li>
+               om vergeten te worden
+            </li>
+            <li>
+               om gegevens over te (laten) dragen
+            </li>
+        </ul>
+    </li>
+    <li>
+        Het opzetten en bijhouden van een register met gegevensverwerkingen
     </li>
 </ul>
 
@@ -118,7 +157,7 @@ Wat houdt de AVG in?
                 deze op zorgvuldige wijze plaastsvindt
             </li>
             <li>
-                deze in overeenstemming is met de wet <h6>(welbepaald, uitdrukkelijk beschreven doel en gerechtvaardigd)</h6>
+                deze voldoet aan de grondslag voor verwerking
             </li>
         </ul>
     </li>
