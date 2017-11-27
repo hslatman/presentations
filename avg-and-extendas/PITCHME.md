@@ -33,10 +33,10 @@
         Reeds in werking getreden; te voldoen aan wetgeving op 25 mei 2018
     </li>
     <li>
-        Vervangt de Wbp volledig (Wbp++)
+        Vervangt de Wbp volledig (Wbp++), maar bouwt er wel op voort
     </li>
     <li>
-        Privacywetgeving geldt dan in geheel Europa
+        Privacywetgeving geldend voor geheel Europa
     </li>
 </ul>
 
@@ -77,7 +77,7 @@ Wat houdt de AVG in?
 
 <ul>
     <li>
-        Van toepassing op _verwerking van_ persoonsgegevens
+        Van toepassing op *verwerking van* persoonsgegevens
         <ul>
             <li>
                 Opslaan
@@ -102,8 +102,29 @@ Wat houdt de AVG in?
 <ul>
     <li>
         Extendas verwerkt diverse persoonsgegevens
+        <ul>
+            <li>
+                (Kaart)transacties, NAW-gegevens, e-mailadressen, enz.
+            </li>
+            <li>
+                Maar ook personeelsgegevens en gegevens van klanten van Extendas (CRM)
+            </li>
+        </ul>
     </li>
-
+    <li>
+        In principe toegestaan, mits:
+        <ul>
+            <li>
+                deze op zorgvuldige wijze plaastsvindt
+            </li>
+            <li>
+                deze in overeenstemming is met de wet <h6>(welbepaald, uitdrukkelijk beschreven doel en gerechtvaardigd)</h6>
+            </li>
+        </ul>
+    </li>
+    <li>
+        Er moeten passende technische en organisatorische maatregelen getroffen worden
+    </li>
 </ul>
 
 ---
@@ -115,7 +136,7 @@ Wat houdt de AVG in?
         Plan van aanpak gereed
     </li>
     <li>
-
+        Maar veel werk aan de winkel!
     </li>
 </ul>
 
@@ -140,6 +161,9 @@ Wat houdt de AVG in?
 # Resources
 
 <ul>
+    <li>
+        <a href="https://autoriteitpersoonsgegevens.nl/sites/default/files/atoms/files/de_avg_in_een_notendop.pdf" target="_blank">De AVG in een notendop</a>
+    </li>
     <li>
         <a href="https://docs.google.com/document/d/1YS2_js7VkS0DqbjAF8VWr_VA5YC3Qe-jJnxgLW3j7A8/view" target="_blank">PVA AVG</a>
     </li>
