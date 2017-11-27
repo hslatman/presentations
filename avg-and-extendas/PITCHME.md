@@ -39,7 +39,7 @@
         Privacywetgeving geldend voor geheel Europa
     </li>
     <li>
-        Grootste verschillen t.o.v. AVG:
+        Grootste verschillen t.o.v. Wbp:
         <ul>
             <li>
                 de mate van controle van betrokkene
