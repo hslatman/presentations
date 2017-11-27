@@ -30,6 +30,9 @@
         Algemene verordening gegevensverwerking (AVG)
     </li>
     <li>
+        Reeds in werking getreden; te voldoen aan wetgeving op 25 mei 2018
+    </li>
+    <li>
         Vervangt de Wbp volledig (Wbp++)
     </li>
     <li>
@@ -39,9 +42,56 @@
 
 +++
 
+# Wat houdt de AVG in?
+
 <ul>
     <li>
-        Algemene verordening gegevensverwerking (AVG)
+        Van toepassing op persoonsgegevens
+        <ul>
+            <li>
+                NAW-gegevens
+            </li>
+            <li>
+                E-mailadressen
+            </li>
+            <li>
+                IP-adres, MAC-adres en andere identifiers
+            </li>
+            <li>
+                Locatiegegevens
+            </li>
+            <li>
+                Betaalgegevens
+            </li>
+            <li>
+                En meer...
+            </li>
+        </ul> 
+    </li>
+</ul>
+
+
++++
+
+Wat houdt de AVG in?
+
+<ul>
+    <li>
+        Van toepassing op _verwerking van_ persoonsgegevens
+        <ul>
+            <li>
+                Opslaan
+            </li>
+            <li>
+                Wijzigen
+            </li>
+            <li>
+                Doorsturen
+            </li>
+            <li>
+                En meer...
+            </li>
+        </ul> 
     </li>
 </ul>
 
@@ -60,13 +110,18 @@
 
 # Waar staan we nu?
 
+<ul>
+    <li>
+        Plan van aanpak gereed
+    </li>
+    <li>
 
+    </li>
+</ul>
 
 ---
 
 # Vervolgstappen
-
----
 
 <ul>
     <li>
@@ -79,6 +134,8 @@
         Aanpassen van documenten, programmatuur en processen
     </li>
 </ul>
+
+---
 
 # Resources
 
