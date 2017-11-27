@@ -6,17 +6,44 @@
 
 <ul>
     <li>
-        Item
+        Wat houdt de AVG in?
     </li>
-
+    <li>
+        Wat betekent de AVG voor Extendas?
+    </li>
+    <li>
+        Waar staan we nu?
+    </li>
+    <li>
+        Vervolgstappen
+    </li>
 </ul>
 
+---
+
+# Wat houdt de AVG in?
+
+
+
+---
+
+# Wat betekent de AVG voor Extendas?
+
+
+
+---
+
+# Waar staan we nu?
+
+
+
+---
+
+# Vervolgstappen
 
 ---
 
 
-
----
 
 # Resources
 
