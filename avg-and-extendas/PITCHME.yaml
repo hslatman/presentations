@@ -1,0 +1,5 @@
+theme: moon
+footnote: "AVG & Extendas - November 28, 2017"
+theme-override: assets/css/PITCHME.css
+#logo: assets/img/Extendas.png
+
