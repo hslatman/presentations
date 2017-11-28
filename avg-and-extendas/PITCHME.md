@@ -30,27 +30,16 @@
         Algemene verordening gegevensverwerking (AVG)
     </li>
     <li>
-        Reeds in werking getreden; te voldoen aan wetgeving op 25 mei 2018
-    </li>
-    <li>
-        Vervangt de Wbp volledig (Wbp++), maar bouwt er wel op voort
+        Te voldoen aan wetgeving op 25 mei 2018
     </li>
     <li>
         Privacywetgeving geldend voor geheel Europa
     </li>
     <li>
-        Grootste verschillen t.o.v. Wbp:
-        <ul>
-            <li>
-                de mate van controle van betrokkene
-            </li>
-            <li>
-                documentatie gegevensverwerkingen
-            </li>
-            <li>
-                er moet rekening gehouden worden met _privacy by design_ & _privacy by default_
-            </li>
-        </ul>
+        Vervanging van Wbp (Wbp++)
+    </li>
+    <li>
+        Enkele grote verschillen t.o.v. Wbp
     </li>
     <li>
         omvat niet de nieuwe ePrivacy regelgeving (_lex specialis_)
@@ -125,11 +114,11 @@
 
 # De AVG in een Notendop (III)
 
-## Grootste verschillen t.o.v. AVG:
+## Grote verschillen t.o.v. Wbp:
 
 <ul>
     <li>
-        De betrokkene heeft het recht om:
+        De betrokkene heeft nu het recht om:
         <ul>
             <li>
                 gegevens in te zien en te (laten) wijzigen
