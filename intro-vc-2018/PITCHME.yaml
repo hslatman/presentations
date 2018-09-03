@@ -1,0 +1,5 @@
+theme: moon
+footnote: "Voorlichting Vechtdal College - 5 september 2018"
+theme-override: assets/css/distributit.css
+#logo: assets/img/Extendas.png
+
