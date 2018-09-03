@@ -2,7 +2,7 @@
 
 ## Herman Slatman
 
-### 5 september 2018
+#### 5 september 2018
 
 ---
 
@@ -52,7 +52,7 @@
                 Specialisatie in Computer Security
             </li>
             <li>
-                Deel van Thesis @ Deloitte Amsterdam
+                Afstudeerstage @ Deloitte Amsterdam
             </li>
             <li>
                 Afgemaakt binnen de UT

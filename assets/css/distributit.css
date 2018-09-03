@@ -18,3 +18,8 @@
 .reveal h6 {
   color: #4e5c5c;
 }
+
+.reveal a {
+  color: #fff;
+  text-decoration: underline;
+}
