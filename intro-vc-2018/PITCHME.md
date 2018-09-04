@@ -93,7 +93,3 @@
     </li>
 </ul>
 
-
-@snap[east]
-![Holmes](assets/img/holmes3.png)
-@snapend
