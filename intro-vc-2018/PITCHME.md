@@ -65,8 +65,6 @@
 
 # Werk
 
- 
-@div[left-70]
 
 @snap[west]
 <ul>
@@ -98,8 +96,7 @@
 </ul>
 @snapend
 
-@divend
 
-@div[right-30 fragment] 
+@snap[east]
 ![Holmes](assets/img/holmes3.png)
-@divend
+@snapend
