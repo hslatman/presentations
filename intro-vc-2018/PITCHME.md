@@ -64,7 +64,7 @@
 ---
 
 @snap[north]
-# Werk
+<h1>Werk</h1>
 @snapend
 
 
