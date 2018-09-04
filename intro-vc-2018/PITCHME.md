@@ -66,7 +66,7 @@
 # Werk
 
  
-@div[left-80]
+@div[left-60]
 <ul>
     <li class="fragment">
         Slatman IT
@@ -97,6 +97,6 @@
 
 @divend
 
-@div[right-20] 
-![Holmes](assets/img/holmes2.png)
+@div[right-40] 
+![Holmes](assets/img/holmes3.png)
 @divend
