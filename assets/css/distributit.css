@@ -23,3 +23,10 @@
   color: #fff;
   text-decoration: underline;
 }
+
+.reveal section img {
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: none;
+}
