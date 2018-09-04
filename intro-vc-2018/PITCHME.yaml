@@ -1,0 +1,6 @@
+theme: moon
+footnote: "Voorlichting Studiekeuze - Vechtdal College - 5 september 2018"
+theme-override: assets/css/distributit.css
+background : assets/img/2880_1800-without-D-01.jpg
+#logo: assets/img/Extendas.png
+

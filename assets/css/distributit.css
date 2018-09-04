@@ -1,0 +1,32 @@
+.reveal {
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+  color: #eee8d5;
+ }
+
+.reveal .fa {
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-size: 36px;
+}
+
+.greyed {
+  color: #4e5c5c;
+}
+
+.reveal h6 {
+  color: #4e5c5c;
+}
+
+.reveal a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.reveal section img {
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: none;
+}
