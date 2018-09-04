@@ -98,5 +98,5 @@
 @divend
 
 @div[right-50] 
-![Holmes](assets/img/holmes.png)
+![Holmes](assets/img/holmes2.png)
 @divend
