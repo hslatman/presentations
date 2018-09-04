@@ -65,6 +65,8 @@
 
 # Werk
 
+ 
+@div[left-50]
 <ul>
     <li class="fragment">
         Slatman IT
@@ -93,6 +95,8 @@
     </li>
 </ul>
 
-@snap[east sidebar]
+@divend
+
+@div[right-50] 
 ![Holmes](assets/img/holmes.png)
-@snapend
+@divend
