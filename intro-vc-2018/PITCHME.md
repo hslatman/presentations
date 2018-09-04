@@ -67,6 +67,8 @@
 
  
 @div[left-70]
+
+@snap[west]
 <ul>
     <li class="fragment">
         Slatman IT
@@ -94,6 +96,7 @@
         </ul>
     </li>
 </ul>
+@snapend
 
 @divend
 
