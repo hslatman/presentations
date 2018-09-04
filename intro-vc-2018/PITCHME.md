@@ -93,4 +93,4 @@
     </li>
 </ul>
 
-![Logo](../assets/img/holmes.png)
+![Holmes](assets/img/holmes.png)
