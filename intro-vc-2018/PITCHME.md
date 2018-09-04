@@ -63,12 +63,8 @@
 
 ---
 
-@snap[north]
-<h1 id="werk">Werk</h1>
-@snapend
+# Werk
 
-
-@snap[west]
 <ul>
     <li class="fragment">
         Slatman IT
@@ -96,7 +92,6 @@
         </ul>
     </li>
 </ul>
-@snapend
 
 
 @snap[east]
