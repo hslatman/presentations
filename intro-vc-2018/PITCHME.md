@@ -97,6 +97,6 @@
 
 @divend
 
-@div[right-30] 
+@div[right-30 fragment] 
 ![Holmes](assets/img/holmes3.png)
 @divend
