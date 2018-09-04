@@ -48,13 +48,13 @@
     <li class="fragment">
         Master Computer Science
         <ul>
-            <li>
+            <li class="fragment">
                 Specialisatie in Computer Security
             </li>
-            <li>
+            <li class="fragment">
                 Afstudeerstage @ Deloitte Amsterdam
             </li>
-            <li>
+            <li class="fragment">
                 Afgemaakt binnen de UT
             </li>
         </ul>
@@ -72,10 +72,10 @@
     <li class="fragment">
         Extendas
         <ul>
-            <li>
+            <li class="fragment">
                 Software ontwikkelaar
             </li>
-            <li>
+            <li class="fragment">
                 Software architect
             </li>
         </ul>
@@ -83,12 +83,14 @@
     <li class="fragment">
         DistributIT
         <ul>
-            <li>
+            <li class="fragment">
                 Opgericht met Berry Gerrits
             </li>
-            <li>
+            <li class="fragment">
                 Ontwikkeling van <a href="https://holmes.distributit.nl/" target="_blank">veilige thuisrouter</a>
             </li>
         </ul>
     </li>
 </ul>
+
+![Logo](../assets/img/holmes.png)
