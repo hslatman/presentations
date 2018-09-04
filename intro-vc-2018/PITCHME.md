@@ -93,4 +93,6 @@
     </li>
 </ul>
 
+@snap[east sidebar]
 ![Holmes](assets/img/holmes.png)
+@snapend
