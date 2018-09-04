@@ -9,19 +9,19 @@
 # Personalia
 
 <ul>
-    <li>
+    <li class="fragment">
         Herman Slatman
     </li>
-    <li>
+    <li class="fragment">
         27
     </li>
-    <li>
+    <li class="fragment">
         2003 - 2009 @ Vechtdal College
     </li>
-    <li>
+    <li class="fragment">
         Natuur & Techniek
     </li>
-    <li>
+    <li class="fragment">
         VWO eXtra (Gymnasium)
     </li>
 </ul>
@@ -31,21 +31,21 @@
 # Studie
 
 <ul>
-    <li>
+    <li class="fragment">
+        Universiteit Twente
+    </li>
+    <li class="fragment">
         Technische Natuurkunde
-        <ul>
-            <li>
-                Universiteit Twente
-            </li>
+        <ul class="fragment">
             <li>
                 Propedeuse
             </li>
         </ul>
     </li>
-    <li>
+    <li class="fragment">
         Bachelor Technische Informatica 
     </li>
-    <li>
+    <li class="fragment">
         Master Computer Science
         <ul>
             <li>
@@ -66,10 +66,10 @@
 # Werk
 
 <ul>
-    <li>
-        Enkele bijbaantjes
+    <li class="fragment">
+        Slatman IT
     </li>
-    <li>
+    <li class="fragment">
         Extendas
         <ul>
             <li>
@@ -80,10 +80,7 @@
             </li>
         </ul>
     </li>
-    <li>
-        Slatman IT
-    </li>
-    <li>
+    <li class="fragment">
         DistributIT
         <ul>
             <li>
