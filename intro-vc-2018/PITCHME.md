@@ -1,6 +1,6 @@
-# Voorlichting Vechtdal College
+# Voorlichting Studiekeuze
 
-## Herman Slatman
+## Vechtdal College
 
 #### 5 september 2018
 
